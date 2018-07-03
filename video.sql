@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 100132
  Source Host           : localhost:3306
- Source Schema         : mysql_db
+ Source Schema         : txt173_com
 
  Target Server Type    : MySQL
  Target Server Version : 100132
@@ -13,7 +13,7 @@
 
  Date: 03/07/2018 05:32:05
 */
-
+user txt173_com;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
