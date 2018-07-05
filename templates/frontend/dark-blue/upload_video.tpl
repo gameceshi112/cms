@@ -4,6 +4,10 @@ var lang_ext_invalid = "{t c='upload.video_ext_invalid' s=$video_extensions}";
 var lang_submit = "{t c='upload.video_submit'}";
 </script>
 <script type="text/javascript" src="{$relative_tpl}/js/jquery.upload-0.1.js"></script>
+<script type="text/javascript" src="{$relative_tpl}/js/my_upload.js"></script>
+<link href="{$relative_tpl}/css/my_upload.css" rel="stylesheet">
+
+
 
 <div class="container">
 	<div class="row">
@@ -63,7 +67,15 @@ var lang_submit = "{t c='upload.video_submit'}";
 							<label for="upload_video_file" class="col-lg-3 control-label">{t c='global.file'}</label>
 							<div class="col-lg-9">
 							
-							<div id="get_video_file" class="btn btn btn-primary no-radius-r pull-left" onclick="getFile('upload_video_file')">{t c='file.choose_file'}</div>
+							<div id="progress">
+							<div id="finish" style="width: 0%;" progress="0"></div>
+							</div>
+							<form action="">
+							<input type="file" name="file" id="file" accept="video/*">
+							<input name="video_file" type="hidden" id="upload_video_file" value=""/>								
+							</form>
+
+						<!--	<div id="get_video_file" class="btn btn btn-primary no-radius-r pull-left" onclick="getFile('upload_video_file')">{t c='file.choose_file'}</div>
 							<div class="file-box">
 								<span id="upvname">{t c='file.no_file'}</span>
 								<div style="height: 0px; width: 0px;overflow:hidden;">
@@ -74,7 +86,7 @@ var lang_submit = "{t c='upload.video_submit'}";
 							<div class="clearfix"></div>
 							<div id="video_file_error" class="text-danger m-t-5" style="display: none;">{t c='upload.video_file_empty'}</div>
 							<div id="video_file_ext_error" class="text-danger m-t-5" style="display: none;"></div>
-							</div>
+							</div>--->
 						</div>						
 						
 						<div class="form-group">

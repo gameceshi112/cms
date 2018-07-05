@@ -22,6 +22,7 @@ $video              = array('title' => '', 'keywords' => '', 'category' => 0, 'p
                             
 
 if ( isset($_POST['video_upload_started']) ) {
+	
     $filter     = new VFilter();
     $title      = $filter->get('video_title');
     $category   = $filter->get('video_category', 'INTEGER');
@@ -49,19 +50,19 @@ if ( isset($_POST['video_upload_started']) ) {
     } else {
         $video['category']  = $category;
     }
-
-    if ( $_FILES['video_file']['tmp_name'] == '' ) {
+	
+    if ( $_POST['video_file'] == '' ) {
         $errors[]           = $lang['upload.video_file_empty'];
-    } elseif ( !is_uploaded_file($_FILES['video_file']['tmp_name']) ) {
-        $errors[]           = $lang['upload.video_file_invalid'];
     } else {
-        $filename           = substr($_FILES['video_file']['name'], strrpos($_FILES['video_file']['name'], DIRECTORY_SEPARATOR)+1);
+        $filename           = substr( $_POST['video_file'], strrpos( $_POST['video_file'], DIRECTORY_SEPARATOR)+1);
         $extension          = strtolower(substr($filename, strrpos($filename, '.')+1));
+		
         $extensions_allowed = explode(',', $config['video_allowed_extensions']);
         if ( !in_array($extension, $extensions_allowed) ) {
             $errors[]       = translate('upload.video_ext_invalid', $config['video_allowed_extensions']);
         } else {
-            $space = filesize($_FILES['video_file']['tmp_name']);
+			$path = $basedir.$_POST['video_file'];
+            $space = filesize($path);
             if ( $space > $upload_max_size ) {
                 $errors[]   = translate('upload.video_size_invalid', $config['video_max_size']);
             }
@@ -72,7 +73,7 @@ if ( isset($_POST['video_upload_started']) ) {
     $video['privacy']       = ( $privacy == 'private' ) ? 'private' : 'public';
     $video['anonymous']     = ( $anonymous == 'yes' ) ? 'yes' : 'no';
     $uid                    = ( $anonymous == 'yes' ) ? getAnonymousUID() : intval($_SESSION['uid']);
-
+	
     if ( !$errors ) {
         $sql        = "INSERT INTO video 
                        SET UID = " .$uid. ", title = '" .mysql_real_escape_string($title). "',
@@ -90,7 +91,7 @@ if ( isset($_POST['video_upload_started']) ) {
         $vdoname    = $video_id. '.' .$extension;
         
         $vdo_path   = $config['VDO_DIR']. '/' .$vdoname;
-        if ( !move_uploaded_file($_FILES['video_file']['tmp_name'], $vdo_path) ) {
+        if ( !move_uploaded_file($basedir.$_POST['video_file'], $vdo_path) ) {
             $errors[]   = 'Failed to move uploaded file!';
         }
 
