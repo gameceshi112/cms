@@ -1,0 +1,6 @@
+cache/backend/
+cache/frontend/
+tmp/logs/
+media/videos/tmb/
+media/videos/vid/
+media/videos/h264/
