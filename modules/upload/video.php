@@ -91,10 +91,9 @@ if ( isset($_POST['video_upload_started']) ) {
         $vdoname    = $video_id. '.' .$extension;
         
         $vdo_path   = $config['VDO_DIR']. '/' .$vdoname;
-        if ( !move_uploaded_file($basedir.$_POST['video_file'], $vdo_path) ) {
+        if ( !rename($basedir.$_POST['video_file'], $vdo_path) ) {
             $errors[]   = 'Failed to move uploaded file!';
         }
-
         if ( !$errors ) {
 			// ---------------------------------------------------------------------------
 			// ---------------------------------------------------------------------------

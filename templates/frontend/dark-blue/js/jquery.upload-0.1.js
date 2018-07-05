@@ -218,7 +218,7 @@ $(document).ready(function(){
             }
         }
         
-        if ( !error ) {
+       /* if ( !error ) {
             var upload_id = $("input[id='UPLOAD_IDENTIFIER']").val();
             $.post(base_url + '/ajax/upload_progress', { upload_id: upload_id },
             function (response) {
@@ -237,6 +237,10 @@ $(document).ready(function(){
                     $("#uploadVideo").submit();
                 }            
             }, "json");                                                                        
+        }*/
+		if ( !error ) {
+            $("#upload_video_submit").val(lang_submit);
+            $("#uploadVideo").submit();                                                              
         }
     });
     
