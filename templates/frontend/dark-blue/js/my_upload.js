@@ -53,7 +53,7 @@ $(document).ready(function(){
             form_data.append('blob_num',blob_num);
             form_data.append('total_blob_num',total_blob_num);
             form_data.append('file_name',file.name);
-            xhr.open('POST','/ajaxupload',false);
+            xhr.open('POST','/ajaxupload',true);
             xhr.onreadystatechange  = function () {
 			if (xhr.readyState==4 && xhr.status==200)
 				{
