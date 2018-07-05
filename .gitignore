@@ -4,3 +4,5 @@ tmp/logs/
 media/videos/tmb/
 media/videos/vid/
 media/videos/h264/
+include/config.db.php
+include/config.paths.php
