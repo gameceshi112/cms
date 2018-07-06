@@ -36,13 +36,14 @@ function Upload(){
         form_data.append('blob_num',blob_num);
         form_data.append('total_blob_num',total_blob_num);
         form_data.append('file_name',file.name);
-        xhr.open('POST','/ajaxupload',true);
+        xhr.open('POST','/ajaxupload',false);
         xhr.onreadystatechange  = function () {
             if (xhr.readyState==4 && xhr.status==200)
             {
                 var o = $.parseJSON(xhr.responseText);
                 if(o.msg=='success'){
                     document.getElementById("upload_video_file").value =o.file_path;
+					
                     fun();
                 }
             }
