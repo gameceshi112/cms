@@ -1,5 +1,5 @@
 function Upload(){
-    var xhr = new XMLHttpRequest();
+    
     var form_data = new FormData();
     const LENGTH = 1024 * 1024;
     var start = 0;
@@ -17,7 +17,7 @@ function Upload(){
     }
     //停止文件上传
     this.stop = function(){
-        xhr.abort();
+      //  xhr.abort();
         is_stop = 1;
     }
     //切割文件
@@ -29,43 +29,44 @@ function Upload(){
     };
     //发送文件
     function sendFile(blob,file,fun){
-        console.log(fun)
         var total_blob_num = Math.ceil(file.size / LENGTH);
         var form_data = new FormData();
         form_data.append('file',blob);
         form_data.append('blob_num',blob_num);
         form_data.append('total_blob_num',total_blob_num);
         form_data.append('file_name',file.name);
+		var xhr = new XMLHttpRequest();
         xhr.open('POST','/ajaxupload',true);
         xhr.onreadystatechange  = function () {
             if (xhr.readyState==4 && xhr.status==200)
             {
                 var o = $.parseJSON(xhr.responseText);
                 if(o.msg=='success'){
-                    document.getElementById("upload_video_file").value =o.file_path;
-					
+                    document.getElementById("upload_video_file").value =o.file_path;	
                     fun();
                 }
-            }
-            var progress;
-            var progressObj = document.getElementById('finish');
-            var pross_val = document.getElementById('pross');
-            if(total_blob_num == 1){
-                progress = '100%';
-            }else{
-                progress = Math.min(100,(blob_num/total_blob_num)* 100 ) +'%';
-            }
-            progressObj.style.width = progress;
-            pross_val.innerHTML="上传进度"+parseInt(progress)+"%";
-            var t = setTimeout(function(){
-                if(start < file.size && is_stop === 0){
-                    blob = cutFile(file);
-                    sendFile(blob,file,fun);
-                    blob_num  += 1;
-                }else{
-                    setTimeout(t);
-                }
-            },1000);
+				var progress;
+				var progressObj = document.getElementById('finish');
+				var pross_val = document.getElementById('pross');
+				if(total_blob_num == 1){
+					progress = '100%';
+				}else{
+					progress = Math.min(100,(blob_num/total_blob_num)* 100 ) +'%';
+				}
+				progressObj.style.width = progress;
+				pross_val.innerHTML="上传进度"+parseInt(progress)+"%";
+				
+				var t = setTimeout(function(){
+					if(start < file.size && is_stop === 0){
+						blob = cutFile(file);
+						sendFile(blob,file,fun);
+						blob_num  += 1;
+					}else{
+						setTimeout(t);
+					}
+				},1000);
+            }	
+		
         }
         xhr.send(form_data);
     }

@@ -226,9 +226,9 @@ $(document).ready(function () {
             } else {
                 var upload = new Upload();
                 upload.addFileAndSend(fileForm, function () {
-			      $("#file").remove();
-                  $("#upload_video_submit").val(lang_submit);
-                   $("#uploadVideo").submit();
+			     $("#file").remove();
+                 $("#upload_video_submit").val(lang_submit);
+                $("#uploadVideo").submit();
                 });
             }
         }
