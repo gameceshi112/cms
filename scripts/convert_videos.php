@@ -40,6 +40,26 @@ foreach($encodings as $encoding) {
 postThumbs($vid,$video_path);
 postConversion($vid,$video_path);
 
+    echo "\n".$nl."Multi Server\n".$nl;
+	$flv = $config['FLVDO_DIR'].'/'.$vid.'.flv';
+	$iphone = $config['IPHONE_DIR'].'/'.$vid.'.mp4';
+	$hd = $config['HD_DIR'].'/'.$vid.'.mp4';
+	if($config['multi_server'] == '1'){
+	    $server = get_server();
+		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
+		executeQuery($sql);
+		upload_video($flv, $iphone, $hd, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+echo "\n ==Video Uploaded to multi server==";
+		if(file_exists($flv) && filesize($flv) > 100){
+			$skip = true;
+		}
+		@chmod($flv, 0777);
+		@unlink($flv);
+		@chmod($hd, 0777);
+		@unlink($hd);
+		@chmod($iphone, 0777);
+		@unlink($iphone);	
+	}
 // Display :: Encoder Core End
 echo "\n<-- End of Script -->\n\n";
 exit();
