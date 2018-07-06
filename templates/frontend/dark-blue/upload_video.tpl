@@ -68,6 +68,7 @@ var lang_submit = "{t c='upload.video_submit'}";
 							<div class="col-lg-9">
 							
 							<div id="progress">
+							 <div id="pross"></div>
 							<div id="finish" style="width: 0%;" progress="0"></div>
 							</div>
 							<form action="">
