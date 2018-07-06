@@ -218,26 +218,7 @@ $(document).ready(function () {
         //     }
         // }
 
-        /* if ( !error ) {
-             var upload_id = $("input[id='UPLOAD_IDENTIFIER']").val();
-             $.post(base_url + '/ajax/upload_progress', { upload_id: upload_id },
-             function (response) {
-                 if ( response.status == '0' ) {
-                     $("#upload_message").html(response.msg);
-                     $("#upload_message").fadeIn();
-                 } else {
-                     if ( response.status == '3' ) {
-                         $("#upload_loader").fadeIn();
-                     } else {
-                         $("#upload_status").fadeIn();
-                         setTimeout("update_progress('" + upload_id + "')", 1200);
-                     }
-
-                     $("#upload_video_submit").val(lang_submit);
-                     $("#uploadVideo").submit();
-                 }
-             }, "json");
-         }*/
+ 
         if (!error) {
             if (video_file != "") {
                 $("#upload_video_submit").val(lang_submit);
@@ -245,8 +226,8 @@ $(document).ready(function () {
             } else {
                 var upload = new Upload();
                 upload.addFileAndSend(fileForm, function () {
-                    $("#upload_video_submit").val(lang_submit);
-                    $("#uploadVideo").submit();
+                  $("#upload_video_submit").val(lang_submit);
+                   $("#uploadVideo").submit();
                 });
             }
         }
