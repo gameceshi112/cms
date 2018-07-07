@@ -205,7 +205,7 @@ function extract_video_thumbs ($video_path, $video_id, $target = 'all', $black_b
   
 	// Get Duration of Video from Database
 	$duration = get_video_duration($video_path, $video_id);
-
+	
 	// Only continue if source video exists
 	if (file_exists($video_path) || file_url_exists($video_path)) {
   	
@@ -288,7 +288,8 @@ function extract_video_thumbs ($video_path, $video_id, $target = 'all', $black_b
 			// Thumbnails extraction commands
 			if ( $config['thumbs_tool'] == 'ffmpeg' ) {
 				// FFMPEG Command
-				$cmd = $config['ffmpeg']." -ss ".$seek." -i '".$video_path."' -r 1 -vframes 1 -an -vcodec mjpeg -y ".$temp_thumbs;
+				$cmd = $config['ffmpeg']." -ss ".$seek." -i $video_path -r 1 -vframes 1 -an -vcodec mjpeg -y ".$temp_thumbs;
+				
 			} else {      
 				// Mplayer Command
 				$cmd = $config['mplayer']." -zoom ".$video_path." -ss ".$seek." -nosound -frames 1 -vf scale=-1:-1 -vo jpeg:outdir=".$temp_thumbs_folder;
