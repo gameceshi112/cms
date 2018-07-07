@@ -193,7 +193,7 @@ function convert ($e, $vid, $video_name, $video_info) {
 		} else {
 			$faststart = "";			
 		}
-		if ($e['copyonly'] && ($e['height'] == $video_info['height'] || $e['width'] == $video_info['width']) && $video_info['file_extension'] == "mp4" && strpos($video_info['format_name'], 'mp4') !== false && $video_info['codec_name'] == "h264" && strpos($video_info['codec_long_name'], 'MPEG-4') !== false && strpos($video_info['codec_long_name'], 'AVC') !== false || 1==1) {
+		if ($e['copyonly'] && ($e['height'] == $video_info['height'] || $e['width'] == $video_info['width']) && $video_info['file_extension'] == "mp4" && strpos($video_info['format_name'], 'mp4') !== false && $video_info['codec_name'] == "h264" && strpos($video_info['codec_long_name'], 'MPEG-4') !== false && strpos($video_info['codec_long_name'], 'AVC') !== false) {
 			if (@copy($src,$output)) {
 				echo "\n"."COPY ONLY: Output resolution/format is the same with the input resloution/format!\n\n";
 			}	
@@ -208,9 +208,22 @@ function convert ($e, $vid, $video_name, $video_info) {
 			} else {
 				$scale = "-vf scale=\"'if(gt(a,4/3),".$e['width'].",-1)':'if(gt(a,4/3),-1,".$e['height'].")'\"";
 			}
+			if($video_info['height']>$e['height']){
+				$height = $e['height'];
+			}else{
+				$height = $video_info['height'];
+			}
+			if($video_info['width']>$e['width']){
+				$width = $e['width'];
+			}else{
+				$width = $video_info['width'];
+			}
+			
+			$scale =$width."x".$height;
+			//echo $scale;die();
 			$output = $config['H264_DIR']."/".$vid."_".$e['label'].".".$e['format'];
-			$cmd = "cp ".$src." ".$output;	
-		modproc($cmd);
+			$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
+			modproc($cmd);
 		}
 		if (file_exists($output) && filesize($output) > 100) {
 			$sql = "UPDATE video SET formats = IF(formats IS NULL, '".$e['height'].".".$e['label'].".".$e['format']."', CONCAT(formats, ',".$e['height'].".".$e['label'].".".$e['format']."')) WHERE VID = '".(int)$vid."'";
