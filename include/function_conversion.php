@@ -195,6 +195,7 @@ function convert ($e, $vid, $video_name, $video_info) {
 		}
 		if ($e['copyonly'] && ($e['height'] == $video_info['height'] || $e['width'] == $video_info['width']) && $video_info['file_extension'] == "mp4" && strpos($video_info['format_name'], 'mp4') !== false && $video_info['codec_name'] == "h264" && strpos($video_info['codec_long_name'], 'MPEG-4') !== false && strpos($video_info['codec_long_name'], 'AVC') !== false) {
 			if (@copy($src,$output)) {
+				log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "COPY ONLY: Output resolution/format is the same with the input resloution");
 				echo "\n"."COPY ONLY: Output resolution/format is the same with the input resloution/format!\n\n";
 			}	
 		} else {
@@ -223,9 +224,11 @@ function convert ($e, $vid, $video_name, $video_info) {
 			//echo $scale;die();
 			$output = $config['H264_DIR']."/".$vid."_".$e['label'].".".$e['format'];
 			$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
+			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $cmd.'\n\n');
 			modproc($cmd);
 		}
 		if (file_exists($output) && filesize($output) > 100) {
+			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "inster table formats,lformats\n\n");
 			$sql = "UPDATE video SET formats = IF(formats IS NULL, '".$e['height'].".".$e['label'].".".$e['format']."', CONCAT(formats, ',".$e['height'].".".$e['label'].".".$e['format']."')) WHERE VID = '".(int)$vid."'";
 			executeQuery($sql);
 			echo "\n".$nl."SQL:\n".$nl.$sql."\n\n";
@@ -233,6 +236,7 @@ function convert ($e, $vid, $video_name, $video_info) {
 			executeQuery($sql);
 			echo "\n".$nl."SQL:\n".$nl.$sql."\n\n";			
 		} else {
+			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "output file is not well delelte\n\n");
 			@chmod($output, 0777);
 			@unlink($output);			
 			$scale = scale($video_info['width'], $video_info['height'], $e['width'], $e['height']);
@@ -248,6 +252,7 @@ function convert ($e, $vid, $video_name, $video_info) {
 			}
 		}
 	} else {
+		echo "\n"."SKIP CONVERSION: Output resolution is higher than the input resloution!\n\n";
 		echo "\n"."SKIP CONVERSION: Output resolution is higher than the input resloution!\n\n";
 	}
 }
