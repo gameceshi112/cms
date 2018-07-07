@@ -1504,7 +1504,7 @@ class Smarty_Compiler extends Smarty {
                 $this->_syntax_error("unknown 'is' expression - '$expr_type'", E_USER_ERROR, __FILE__, __LINE__);
                 break;
         }
-
+	
         if ($negate_expr) {
             $expr = "!($expr)";
         }
