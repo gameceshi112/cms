@@ -209,7 +209,9 @@ function convert ($e, $vid, $video_name, $video_info) {
 			} else {
 				$scale = "-vf scale=\"'if(gt(a,4/3),".$e['width'].",-1)':'if(gt(a,4/3),-1,".$e['height'].")'\"";
 			}
-			if($video_info['height']>$e['height']){
+			$scale = scale($video_info['width'], $video_info['height'], $e['width'], $e['height']);
+			
+		/*	if($video_info['height']>$e['height']){
 				$height = $e['height'];
 			}else{
 				$height = $video_info['height'];
@@ -219,9 +221,9 @@ function convert ($e, $vid, $video_name, $video_info) {
 			}else{
 				$width = $video_info['width'];
 			}
-			
-			$scale =$width."x".$height;
-			//echo $scale;die();
+			///usr/bin/ffmpeg/bin/ffmpeg -i /www/wwwroot/demo.1788av.com/media/videos/vid/343.mp4 -c:v libx264 -vf scale=320:180 /www/wwwroot/demo.1788av.com/media/videos/h264/343_480p.mp4
+			$scale =$width."x".$height;*/
+			$cmd = $config['ffmpeg']." -i ".$src." -c:v libx264 -preset ".$e['preset']." -crf ".$e['crf']." ".$scale." ".$e['ios']." ".$faststart." ".$output."";
 			$output = $config['H264_DIR']."/".$vid."_".$e['label'].".".$e['format'];
 			$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $cmd.'\n\n');
