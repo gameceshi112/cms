@@ -24,6 +24,7 @@ class Upload{
    
   //判断是否是最后一块，如果是则进行文件合成并且删除文件块
   private function fileMerge(){
+	  ini_set('memory_limit','-1');
     if($this->blobNum == $this->totalBlobNum){
       $blob = '';
       for($i=1; $i<= $this->totalBlobNum; $i++){
