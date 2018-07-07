@@ -225,7 +225,7 @@ function convert ($e, $vid, $video_name, $video_info) {
 			$scale =$width."x".$height;*/
 			$cmd = $config['ffmpeg']." -i ".$src." -c:v libx264 -preset ".$e['preset']." -crf ".$e['crf']." ".$scale." ".$e['ios']." ".$faststart." ".$output."";
 			$output = $config['H264_DIR']."/".$vid."_".$e['label'].".".$e['format'];
-			$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
+		//	$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $cmd.'\n\n');
 			modproc($cmd);
 		}
