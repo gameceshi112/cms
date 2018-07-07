@@ -13,7 +13,7 @@ $basedir = dirname(dirname(__FILE__));
 require $basedir. '/include/config.php';
 require $basedir. '/include/function_video.php';
 require $basedir. '/include/function_conversion.php';
-
+require $basedir. '/include/function_server.php';
 $vi = array();
 $video_info = array();
 $nl = "=========================================================\n";
@@ -24,7 +24,6 @@ echo "Parameters:\n";
 echo "Video Name: $video_name\n";
 echo "Vidoe ID: $vid\n";
 echo "Video Path: $video_path\n\n";
-
 // Error Checks
 if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 	echo "Video Name: $video_name is invalid. Err #1. Exiting ..."; exit();
@@ -35,12 +34,31 @@ if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 // Get Encoder
 $encodings = getEncodings();
 foreach($encodings as $encoding) {
-	convert($encoding, $vid, $video_name, $video_info);	
-}
-postThumbs($vid,$video_path);
-postConversion($vid,$video_path);
+	convert($encoding, $vid, $video_name, $video_info);
 
-    echo "\n".$nl."Multi Server\n".$nl;
+	$output = $config['H264_DIR']."/".$vid."_".$encoding['label'].".".$encoding['format'];
+	    echo "\n".$nl."Multi Server\n".$nl;
+	$flv = $config['FLVDO_DIR'].'/'.$vid.'.flv';
+	$iphone = $config['IPHONE_DIR'].'/'.$vid.'.mp4';
+	$hd = $output;
+	if($config['multi_server'] == '1'){
+	    $server = get_server();
+		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
+		executeQuery($sql);
+		upload_video($flv, $iphone, $hd, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+		echo "\n ==Video Uploaded to multi server==";
+		if(file_exists($flv) && filesize($flv) > 100){
+			$skip = true;
+		}
+		@chmod($flv, 0777);
+		@unlink($flv);
+		@chmod($hd, 0777);
+		@unlink($hd);
+		@chmod($iphone, 0777);
+		@unlink($iphone);	
+	}	
+}
+/*    echo "\n".$nl."Multi Server\n".$nl;
 	$flv = $config['FLVDO_DIR'].'/'.$vid.'.flv';
 	$iphone = $config['IPHONE_DIR'].'/'.$vid.'.mp4';
 	$hd = $config['HD_DIR'].'/'.$vid.'.mp4';
@@ -59,7 +77,9 @@ echo "\n ==Video Uploaded to multi server==";
 		@unlink($hd);
 		@chmod($iphone, 0777);
 		@unlink($iphone);	
-	}
+	}*/
+postThumbs($vid,$video_path);
+postConversion($vid,$video_path);
 // Display :: Encoder Core End
 echo "\n<-- End of Script -->\n\n";
 exit();

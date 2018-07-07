@@ -106,16 +106,18 @@ function upload_video($flv, $iphone, $hd, $ip, $username, $password, $ftp_root)
 		}	
 	}
 	if (file_exists($hd)) {
-		if ( !ftp_chdir($conn_id, 'hd') ) {
-		    die('Failed to change directory to: hd');
-		}	
+	//	if ( !ftp_chdir($conn_id, 'hd') ) {
+	//	    die('Failed to change directory to: hd');
+	//	}	
 		$filename = basename($hd);
 		ftp_delete($conn_id, $filename);
 		ftp_put($conn_id, $filename, $hd, FTP_BINARY);
 		ftp_site($conn_id, sprintf('CHMOD %u %s', 777, $filename));
-		if ( !ftp_chdir($conn_id, '..') ) {
-		    die('Failed to change directory to: ' .$ftp_root);
-		}	
+	//	iif ( !ftp_chdir($conn_id, '..') ) {
+	//	    die('Failed to change directory to: ' .$ftp_root);
+	//	}	
+	}else{
+	   echo 'no hd:'.$hd; die();
 	}
 	ftp_close($conn_id);
 }

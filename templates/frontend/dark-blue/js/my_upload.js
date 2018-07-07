@@ -71,17 +71,17 @@ function Upload(){
         xhr.send(form_data);
     }
 }
+function getFileName(o){    var pos=o.lastIndexOf("\\");    return o.substring(pos+1);  }
+
+
 $(document).ready(function(){
 	 var fileForm = document.getElementById("file");
     var stopBtn = document.getElementById('stop');
     var upload = new Upload();
-    // fileForm.onchange = function(){
-		// upload = new Upload();
-    //
-    //     upload.addFileAndSend(this);
-    // }
-
-
+    fileForm.onchange = function(){
+        $("#upload_video_file").val("");
+        $("#pross").html(getFileName($("#file").val()))
+    }
   /*  stopBtn.onclick = function(){
         this.value = "停止中";
         upload.stop();
