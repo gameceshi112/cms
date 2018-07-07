@@ -1,7 +1,12 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 /*104.192.80.159 linux   pass：94tE3WiVohkF73q9OL*/
-/*104.233.229.167  端口33596  用户名root 密码H8$&ld3M**/
+/*104.233.229.167  端口33596  用户名root 密码H8$&ld3M
+GIT zhuanghu gameceshi@gma
+123456poi
+
+
+**/
 header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
