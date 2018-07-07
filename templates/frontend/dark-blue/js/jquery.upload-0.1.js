@@ -226,9 +226,11 @@ $(document).ready(function () {
             } else {
                 var upload = new Upload();
                 $("#file").attr("disabled",'true');
+				$("#upload_video_submit").attr("disabled",'true');
+				$("#upload_video_submit").val("正在上传中...");
                 upload.addFileAndSend(fileForm, function () {
 			     $("#file").remove();
-                 $("#upload_video_submit").val(lang_submit);
+                 
                 $("#uploadVideo").submit();
                 });
             }
