@@ -1,4 +1,5 @@
 <?php
+
 define('_VALID', true);
 require 'include/config.php';
 require 'include/function_global.php';
@@ -38,5 +39,6 @@ $smarty->display('errors.tpl');
 $smarty->display('messages.tpl');
 $smarty->display('index.tpl');
 $smarty->display('footer.tpl');
+
 $smarty->gzip_encode();
 ?>
