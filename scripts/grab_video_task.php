@@ -83,7 +83,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 	
 	//下载文件
 	$vdo_path = $config['VDO_DIR'].'/tmp.mp4';
-	if (!$curl->saveToFile($vurl, $vdo_path)) {
+	if (0 && !$curl->saveToFile($vurl, $vdo_path)) {
 		$sql = "UPDATE grap_video_task set status=3,msg='文件下载失败' WHERE id=".$task[id];
 		$rs  = $conn->execute($sql);
 		exit();		
@@ -114,7 +114,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 			$uid                    =  1;
 			$sql        = "INSERT INTO video 
                        SET UID = " .$uid. ", title = '" .mysql_real_escape_string($title). "',
-                           channel = " .$category. ", keyword = '" .mysql_real_escape_string($keywords). "',
+                           channel = " .1. ", keyword = '" .mysql_real_escape_string($keywords). "',
 						   description = '".mysql_real_escape_string($description)."', 
                            space = '" .$space. "', addtime = '" .time(). "', adddate = '" .date('Y-m-d'). "', vkey = '" .mt_rand(). "', 
                            type = '" .$video['privacy']. "', active = '2'";
