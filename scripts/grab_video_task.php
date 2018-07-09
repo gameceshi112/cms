@@ -114,7 +114,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 			$uid                    =  1;
 			$sql        = "INSERT INTO video 
                        SET UID = " .$uid. ", title = '" .mysql_real_escape_string($title). "',
-                           channel = " .1. ", keyword = '" .mysql_real_escape_string($keywords). "',
+                           channel = " ."1". ", keyword = '" .mysql_real_escape_string($keywords). "',
 						   description = '".mysql_real_escape_string($description)."', 
                            space = '" .$space. "', addtime = '" .time(). "', adddate = '" .date('Y-m-d'). "', vkey = '" .mt_rand(). "', 
                            type = '" .$video['privacy']. "', active = '2'";
