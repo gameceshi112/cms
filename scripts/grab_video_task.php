@@ -1,4 +1,45 @@
 <?php
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : Loacl
+ Source Server Type    : MySQL
+ Source Server Version : 100132
+ Source Host           : localhost:3306
+ Source Schema         : mysql_db
+
+ Target Server Type    : MySQL
+ Target Server Version : 100132
+ File Encoding         : 65001
+
+ Date: 09/07/2018 06:52:31
+*/
+/*
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for grap_video_task
+-- ----------------------------
+DROP TABLE IF EXISTS `grap_video_task`;
+CREATE TABLE `grap_video_task`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `status` int(1) NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `title` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `md5` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `file_size` bigint(10) NULL DEFAULT NULL,
+  `start_time` int(10) NULL DEFAULT NULL,
+  `msg` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of grap_video_task
+-- ----------------------------
+INSERT INTO `grap_video_task` VALUES (3, 1, 'http://www.aotu47.com/file/17820/1/597bffbd7c8bc76df72a/1531099227/mp4/17820.mp4', '1', '076f4', 32495786, 1531143636, '请求超时');
+
+SET FOREIGN_KEY_CHECKS = 1;*/
 define('_VALID', 1);
 define('_ENTER', true);
 define('_CLI', true);
@@ -9,14 +50,14 @@ require $basedir. '/include/function_video.php';
  ini_set('memory_limit','-1');
 $curl = new VCurl();
 $max_allow_num = 1;
-$time_out = 2;
+$time_out = 600;
 //判断当前执行的任务数量 status = 10;
 $sql = "SELECT * FROM grap_video_task WHERE status = 10";
 $rs  = $conn->execute($sql);
 if ( $conn->Affected_Rows() >= $max_allow_num) {
 	//
 	$last_time = time()- $time_out;
-	$sql = "UPDATE grap_video_task SET status = 6,msg='请求超时' WHERE start_time<".$last_time;
+	$sql = "UPDATE grap_video_task SET status = 6,msg='请求超时' WHERE status = 10 AND start_time<".$last_time;
 	$rs  = $conn->execute($sql);
     exit();
 }
@@ -96,16 +137,16 @@ if ( $conn->Affected_Rows() != 1 ) {
 		    	." ".$config['BASE_DIR']."/scripts/convert_videos.php"
 		    	." ".$vdoname
 		    	." ".$video_id
-		    	." ".$vdo_path
+		    	." ".$new_vdo_path
 		    ."";
 			shell_exec($cmd);
-			$duration    = get_video_duration($vdo_path, $video_id);
+			$duration    = get_video_duration($new_vdo_path, $video_id);
 			$sql         = "UPDATE video SET 
 							duration = '" .mysql_real_escape_string($duration). "', 
 							vdoname = '" .mysql_real_escape_string($vdoname). "' 
 							WHERE VID = " .intval($video_id). " LIMIT 1";
 			$conn->execute($sql);	 
-			$sql = "UPDATE grap_video_task set status=2,md5 = '".$md5."' , file_size=".$file_size." WHERE id=".$task[id];
+			$sql = "UPDATE grap_video_task set status=2,msg='任务正常完成',md5 = '".$md5."' , file_size=".$file_size." WHERE id=".$task[id];
 			$rs  = $conn->execute($sql);
 		}else{
 			//文件已经存在不需要重新下载
