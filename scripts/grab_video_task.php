@@ -83,7 +83,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 	
 	//下载文件
 	$vdo_path = $config['VDO_DIR'].'/tmp.mp4';
-	if (0 && !$curl->saveToFile($vurl, $vdo_path)) {
+	if (!$curl->saveToFile($vurl, $vdo_path)) {
 		$sql = "UPDATE grap_video_task set status=3,msg='文件下载失败' WHERE id=".$task[id];
 		$rs  = $conn->execute($sql);
 		exit();		
