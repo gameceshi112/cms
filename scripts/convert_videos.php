@@ -62,8 +62,8 @@ foreach($encodings as $encoding) {
 	}	
 }
 
-//postThumbs($vid,$video_path);
-//postConversion($vid,$video_path);
+postThumbs($vid,$video_path);
+postConversion($vid,$video_path);
 // Display :: Encoder Core End
 echo "\n<-- End of Script -->\n\n";
 exit();
