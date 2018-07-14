@@ -51,7 +51,6 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root)
 	   echo 'no hd:'.$hd;
 	}
 	ftp_close($conn_id);
-	die();
 }
 function get_server()
 {
