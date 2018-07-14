@@ -165,7 +165,50 @@ function getEncodings() {
 	$encodings[$lastkey]['lq'] = true;
 	return $encodings;
 }
-
+function write_m3u8($file_url,$ad_url,$ad_length){
+		$str = file_get_contents($file_url);
+		$tags = explode("#EXTINF",$str);
+		$old_header = $tags[0];
+		$ad_length = 13;
+		$new_header = $old_header."#EXTINF:".$ad_length.",\n".$ad_url."\n#EXT-X-DISCONTINUITY\n";
+		$new_str = str_replace($old_header,$new_header,$str);
+		$myfile = file_put_contents($file_url,$new_str);
+}
+function convert_m3u8($video_path,$e,$vid){
+	global $config;
+	$log = $config['LOG_DIR']. '/' .$vid. '.log';
+	log_conversion($log,"start convert m3u8\n");
+	//创建TS目录
+	$md5_path = md5(time().mt_rand(0,10000));
+	$m3u8_storge_path = $config['M3U8_DIR'].DIRECTORY_SEPARATOR.$md5_path.DIRECTORY_SEPARATOR;
+	@mkdir($m3u8_storge_path);
+	
+	//转化成ts文件
+	$ts_name = 'mp4.ts';
+	$ts_output_path = $m3u8_storge_path.$ts_name;
+	$ffmpeg_path = $config['ffmpeg'];
+	$cmd = $ffmpeg_path.' -y -i '.$video_path.' -vcodec copy -acodec copy -vbsf h264_mp4toannexb '.$ts_output_path;	
+	exec($cmd,$res);
+	log_conversion($log,"start exec cmd:".$cmd);
+	
+	//转化为M3U8文件
+	$m3u8_path = $m3u8_storge_path.'index.m3u8';
+	$cmd = $ffmpeg_path.' -i '.$ts_output_path.' -c copy -map 0 -f segment -segment_list '.$m3u8_path.' -segment_time 16 '.$m3u8_storge_path.'index-%03d.ts';
+	exec($cmd,$res);
+	log_conversion($log,"start exec cmd:".$cmd);
+	
+	//插入广告
+	write_m3u8($m3u8_path,$config['ADS_URL'],$config['ADVS_LENGTH']);
+	
+	$format = "m3u8";
+	$sql = "UPDATE video SET m3u8 = IF(m3u8 IS NULL, '".$e['height'].".".$md5_path.".".$format."', CONCAT(m3u8, ',".$e['height'].".".$md5_path.".".$format."')) WHERE VID = '".(int)$vid."'";
+	executeQuery($sql);
+	
+	
+	//删除ts.mp4
+	unlink($ts_output_path);
+	return $m3u8_storge_path;
+}
 
 function convert ($e, $vid, $video_name, $video_info) {
 	global $config;

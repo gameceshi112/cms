@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Pre-transform that changes converts a boolean attribute to fixed CSS
- */
+
 class HTMLPurifier_AttrTransform_BoolToCSS extends HTMLPurifier_AttrTransform
 {
     /**
@@ -12,7 +10,7 @@ class HTMLPurifier_AttrTransform_BoolToCSS extends HTMLPurifier_AttrTransform
     protected $attr;
 
     /**
-     * CSS declarations to add to style, needs trailing semicolon.
+     * Cto add to style, needs trailing semicolon.
      * @type string
      */
     protected $css;

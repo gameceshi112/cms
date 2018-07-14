@@ -13,7 +13,6 @@
   
   Joshua Eldridge (joshuae74#hotmail.com)
 */ 
-
 // security - hide paths
 if (!defined('ADODB_DIR')) die();
 

@@ -5,7 +5,6 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/validation.class.php';
 require 'classes/filter.class.php';
-
 $feedback       = array('department' => 'General', 'email' => '', 'name' => '', 'message' => '');
 $departments    = array('General', 'Violations', 'Advertising');
 if ( isset($_POST['submit_feedback']) ) {

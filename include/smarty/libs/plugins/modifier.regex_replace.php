@@ -3,11 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
-
-
-/**
- * Smarty regex_replace modifier plugin
+ty regex_replace modifier plugin
  *
  * Type:     modifier<br>
  * Name:     regex_replace<br>

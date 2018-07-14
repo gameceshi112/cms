@@ -13,7 +13,6 @@ if ($slug != '') {
 		$cat_id         = $rs->fields['CID'];
 	}
 }
-
 if ( $config['photo_module'] == '0' ) {
         VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }

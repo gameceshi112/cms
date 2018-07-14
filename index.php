@@ -5,6 +5,8 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 
+
+//
 $sql_add	= NULL;
 $sql_delim	= ' WHERE';
 if ( $config['show_private_videos'] == '0' ) {

@@ -6,7 +6,7 @@
  * In PHP 5, the DOM XML extension was revamped into DOM and added to the core.
  * It gives us a forgiving HTML parser, which we use to transform the HTML
  * into a DOM, and then into the tokens.  It is blazingly fast (for large
- * documents, it performs twenty times faster than
+ rms twenty times faster than
  * HTMLPurifier_Lexer_DirectLex,and is the default choice for PHP 5.
  *
  * @note Any empty elements will have empty tokens associated with them, even if

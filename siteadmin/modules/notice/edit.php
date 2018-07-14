@@ -1,6 +1,5 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
 require_once ('editor_files/editor_functions.php');
 require_once ('editor_files/config.php');

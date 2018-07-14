@@ -9,6 +9,8 @@ $videos         = array();
 $albums         = array();
 $games         = array();
 
+
+
 if ($s == "g") {
 	$sql            = "SELECT category_id, category_name, slug FROM game_categories ORDER BY category_name ASC";
 	$rs             = $conn->execute($sql);

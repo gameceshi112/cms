@@ -5,7 +5,6 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'include/function_thumbs.php';
 require 'classes/pagination.class.php';
-
 if ( $config['video_view'] == 'registered' ) {
     require 'classes/auth.class.php';
     Auth::check();
@@ -42,17 +41,17 @@ $video              = $rs->getrows();
 $video              = $video['0'];
 
 if ($video['embed_code'] == '') {
-	$formats = explode(',', $video['formats']);
-	foreach ($formats as $key => $value) {
+	
+	
+	/*foreach ($formats as $key => $value) {
 		 unset($f);
 		 $f = explode('.', $value);
 		 $vf[$key]['height'] = $f[0];
 		 $vf[$key]['label']  = $f[1]; 
 		 $vf[$key]['format'] = $f[2];
 		 $vf[$key]['file']   = $video['VID']."_".$vf[$key]['label'].".".$vf[$key]['format'];	 
-	}
-	$video['files'] = $vf;
-
+	}*/
+	
 	if ($video['server'] != '') {
 		$sql = "SELECT * FROM video v, servers s WHERE v.VID = ".$vid." AND v.server = s.video_url LIMIT 1";
 		$rs  = $conn->execute($sql); 
@@ -61,6 +60,30 @@ if ($video['embed_code'] == '') {
 	if (!$video_root) {
 		$video_root = $config['BASE_URL']."/media/videos";
 	}
+	
+	if(!empty($video['m3u8'])){
+		$formats = explode(',', $video['m3u8']);
+		foreach ($formats as $key => $value) {
+		 unset($f);
+		 $f = explode('.', $value);
+		
+		 $vf[$key]['height'] = $f[0];
+		 $vf[$key]['label']  = $f[1];
+		 $vf[$key]['format'] = $f[2];
+		 $vf[$key]['file']   = $video_root.'/'.'m3u8'.'/'.$vf[$key]['label'].'/'.'index.m3u8';	 
+		}
+	}else{
+		unset($f);
+		$f = explode('.', $value);
+		$vf[$key]['height'] = $f[0];
+		$vf[$key]['label']  = $f[1]; 
+		$vf[$key]['format'] = $f[2];
+		$vf[$key]['file']   = $video_root.'/'.$video['VID']."_".$vf[$key]['label'].".".$vf[$key]['format'];	
+	}
+	
+	$video['files'] = $vf;
+
+	
 
 	//---- VJS
 	$sql    = "SELECT * from player WHERE profile = 'Main' LIMIT 1";

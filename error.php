@@ -4,6 +4,9 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 
+
+
+//
 $error_type = 'default';
 $request    = ( isset($_SERVER['REQUEST_URI']) ) ? $_SERVER['REQUEST_URI'] : NULL;
 $query      = explode('/', $request);

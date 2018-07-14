@@ -1,10 +1,12 @@
 <?php
-
 class VGrab_extremetube
 {
     var $url;
     var $page;
     var $curl;
+	
+	
+	
 	
     function __construct() {
         $this->curl = new VCurl();

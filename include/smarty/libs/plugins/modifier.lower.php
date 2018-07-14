@@ -3,13 +3,10 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-
-/**
  * Smarty lower modifier plugin
  *
- * Type:     modifier<br>
+ *  Type:     modifier<br>
  * Name:     lower<br>
  * Purpose:  convert string to lowercase
  * @link http://smarty.php.net/manual/en/language.modifier.lower.php

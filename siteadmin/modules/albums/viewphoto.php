@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 Auth::checkAdmin();
-
 $AID    = ( isset($_GET['AID']) && is_numeric($_GET['AID']) ) ? intval($_GET['AID']) : NULL;
 $PID    = ( isset($_GET['PID']) && is_numeric($_GET['PID']) ) ? intval($_GET['PID']) : NULL;
 if ( isset($_GET['a']) ) {

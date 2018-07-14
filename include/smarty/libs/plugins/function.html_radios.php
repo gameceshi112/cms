@@ -2,11 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty {html_radios} function plugin
  *
  * File:       function.html_radios.php<br>

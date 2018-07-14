@@ -11,7 +11,7 @@ class HTMLPurifier_AttrTransform_ImgSpace extends HTMLPurifier_AttrTransform
     protected $attr;
 
     /**
-     * @type array
+    
      */
     protected $css = array(
         'hspace' => array('left', 'right'),

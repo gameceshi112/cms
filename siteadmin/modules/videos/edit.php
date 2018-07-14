@@ -1,8 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
-
 $video  = array();
 $VID    = ( isset($_GET['VID']) && is_numeric($_GET['VID']) ) ? trim($_GET['VID']) : NULL;
 settype($VID, 'integer');

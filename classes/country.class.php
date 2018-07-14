@@ -1,19 +1,10 @@
 <?php
-/**************************************************************************************************
-| Software Name        : ClipShare - Video Sharing Community Script
-| Software Version     : 1.5.5
-| Software Author      : Clip-Share.Com / ScriptXperts.Com
-| Website              : http://www.clip-share.com
-| E-mail               : office@clip-share.com
-|**************************************************************************************************
-| This source file is subject to the ClipShare End-User License Agreement, available online at:
-| http://www.clip-share.com/video-sharing-script-eula.html
-| By using this software, you acknowledge having read this Agreement and agree to be bound thereby.
-|**************************************************************************************************
-| Copyright (c) 2006 Clip-Share.com. All rights reserved.
-|**************************************************************************************************/
 
 class I18N_ISO_3166 {
+
+
+
+
 
     var $twothree;
     var $twocountry;

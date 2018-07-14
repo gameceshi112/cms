@@ -1,9 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
 /**
  * Get path to file from include_path

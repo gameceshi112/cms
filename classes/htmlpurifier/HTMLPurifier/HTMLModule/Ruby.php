@@ -1,7 +1,7 @@
 <?php
 
 /**
- * XHTML 1.1 Ruby Annotation Module, defines elements that indicate
+ * XHTML 1.1 Ruby elements that indicate
  * short runs of text alongside base text for annotation or pronounciation.
  */
 class HTMLPurifier_HTMLModule_Ruby extends HTMLPurifier_HTMLModule

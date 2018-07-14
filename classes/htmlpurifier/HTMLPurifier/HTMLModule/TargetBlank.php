@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Module adds the target=blank attribute transformation to a tags.  It
+ * Module addsank attribute transformation to a tags.  It
  * is enabled by HTML.TargetBlank
  */
 class HTMLPurifier_HTMLModule_TargetBlank extends HTMLPurifier_HTMLModule

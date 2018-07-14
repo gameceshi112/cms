@@ -3,7 +3,6 @@ defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/pagination.class.php';
 
 Auth::checkAdmin();
-
 $exists = true;
 $AID    = ( isset($_GET['AID']) && is_numeric($_GET['AID']) ) ? intval(trim($_GET['AID'])) : NULL;
 if ( !$AID ) {

@@ -1,11 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
  * Load requested plugins
  *
  * @param array $plugins

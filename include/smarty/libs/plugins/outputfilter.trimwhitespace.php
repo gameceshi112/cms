@@ -2,10 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-/**
  * Smarty trimwhitespace outputfilter plugin
  *
  * File:     outputfilter.trimwhitespace.php<br>
@@ -48,8 +45,10 @@ function smarty_outputfilter_trimwhitespace($source, &$smarty)
     // remove all leading spaces, tabs and carriage returns NOT
     // preceeded by a php close tag.
     $source = trim(preg_replace('/((?<!\?>)\n)[\s]+/m', '\1', $source));
-
-    // replace textarea blocks
+    
+      
+	  
+	  // replace textarea blocks
     smarty_outputfilter_trimwhitespace_replace("@@@SMARTY:TRIM:TEXTAREA@@@",$_textarea_blocks, $source);
 
     // replace pre blocks

@@ -1,14 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
- * Replace nocache-tags by results of the corresponding non-cacheable
- * functions and return it
- *
  * @param string $compiled_tpl
  * @param string $cached_source
  * @return string

@@ -3,10 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-
-/**
  * Smarty {math} function plugin
  *
  * Type:     function<br>

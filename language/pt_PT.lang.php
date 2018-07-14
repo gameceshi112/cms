@@ -1,6 +1,7 @@
 <?php
 defined('_VALID') or die('acesso restrito!');
 $lang = array();
+
 $lang['global.sign_out'] = 'Deslogar';
 $lang['global.my_feeds'] = 'Meus feeds';
 $lang['global.requests'] = 'Pedidos';

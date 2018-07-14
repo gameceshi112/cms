@@ -7,7 +7,6 @@ require '../include/function_admin.php';
 require '../classes/auth.class.php';
 
 Auth::checkAdmin();
-
 if ( isset($_GET['err']) ) {
     $errors[]   = trim($_GET['err']);
 }

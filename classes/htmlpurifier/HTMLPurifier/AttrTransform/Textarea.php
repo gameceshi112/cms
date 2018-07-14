@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Sets height/width defaults for <textarea>
- */
+
 class HTMLPurifier_AttrTransform_Textarea extends HTMLPurifier_AttrTransform
 {
     /**

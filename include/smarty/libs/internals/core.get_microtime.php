@@ -1,11 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
+ 
  * Get seconds and microseconds
  * @return double
  */

@@ -3,12 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-
-/**
- * Smarty count_sentences modifier plugin
- *
  * Type:     modifier<br>
  * Name:     count_sentences
  * Purpose:  count the number of sentences in a text

@@ -1,5 +1,4 @@
 <?php
-
 class VGrab_gaytube
 {
     var $url;
@@ -10,6 +9,9 @@ class VGrab_gaytube
         $this->curl = new VCurl();
     }
 
+	
+	
+	
     function VGrab_gaytube() {
         $this->__construct();
     }

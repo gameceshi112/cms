@@ -5,6 +5,8 @@
  * Author: Johan Linnér <johan@linner.biz>
  */
 
+ 
+ 
 $PHPMAILER_LANG = array();
 
 $PHPMAILER_LANG["provide_address"] = 'Du måste ange minst en ' .

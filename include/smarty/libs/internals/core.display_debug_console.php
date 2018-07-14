@@ -1,9 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
 /**
  * Smarty debug_console function plugin

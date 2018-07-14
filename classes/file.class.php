@@ -1,6 +1,8 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 
+
+
 class VFile
 {
     static function getExtension( $file )

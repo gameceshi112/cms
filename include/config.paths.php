@@ -1,7 +1,7 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 $config = array();
-$config['BASE_URL'] = 'http://demo.1788av.com';
+$config['BASE_URL'] = 'http://www.cms.com/';
 $config['RELATIVE'] = '';
 $config['BASE_DIR'] = dirname(dirname(__FILE__));
 $config['TMP_DIR'] = $config['BASE_DIR']. '/tmp';
@@ -12,16 +12,19 @@ $config['IMG_URL'] = $config['BASE_URL']. '/images';
 $config['PHO_DIR'] = $config['BASE_DIR']. '/media/users';
 $config['PHO_URL'] = $config['BASE_URL']. '/media/users';
 $config['VDO_DIR'] = $config['BASE_DIR']. '/media/videos/vid';
+$config['M3U8_DIR'] = $config['BASE_DIR']. '/media/videos/m3u8';
 $config['VDO_URL'] = $config['BASE_URL']. '/media/videos/vid';
 $config['FLVDO_DIR'] = $config['BASE_DIR']. '/media/videos/flv';
 $config['FLVDO_URL'] = $config['BASE_URL']. '/media/videos/flv';
 $config['TMB_DIR'] = $config['BASE_DIR']. '/media/videos/tmb';
 $config['TMB_URL'] = $config['BASE_URL']. '/media/videos/tmb';
-
 $config['HD_DIR'] = $config['BASE_DIR'].'/media/videos/hd';
 $config['HD_URL'] = $config['BASE_URL'].'/media/videos/hd';
 $config['IPHONE_DIR'] = $config['BASE_DIR'].'/media/videos/iphone';
 $config['IPHONE_URL'] = $config['BASE_URL'].'/media/videos/iphone';
 $config['H264_DIR'] = $config['BASE_DIR'].'/media/videos/h264';
-$config['H264_URL'] = $config['BASE_URL'].'/media/videos/h264';		
+$config['H264_URL'] = $config['BASE_URL'].'/media/videos/h264';	
+$config['ADS_URL'] = "http://www.cms.com/media/advs/advs.ts";
+$config['ADVS_LENGTH'] = "16";
+
 ?>

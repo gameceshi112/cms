@@ -2,11 +2,7 @@
 
 // must be called POST validation
 
-/**
- * Adds target="blank" to all outbound links.  This transform is
- * only attached if Attr.TargetBlank is TRUE.  This works regardless
- * of whether or not Attr.AllowedFrameTargets
- */
+
 class HTMLPurifier_AttrTransform_TargetBlank extends HTMLPurifier_AttrTransform
 {
     /**

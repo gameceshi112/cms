@@ -5,10 +5,8 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
 require 'classes/auth.class.php';
-
 $auth   = new Auth();
 $auth->check();
-
 $uid            = intval($_SESSION['uid']);
 $username       = $_SESSION['username'];
 $sql            = "SELECT * FROM signup WHERE UID = " .$uid. " LIMIT 1";

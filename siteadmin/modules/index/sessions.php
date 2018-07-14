@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 if ( isset($_POST['submit_sessions']) ) {
     $filter             = new VFilter();
 	$session_driver 	= $filter->get('session_driver');

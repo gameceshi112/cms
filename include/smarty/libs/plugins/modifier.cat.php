@@ -2,13 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
- * Smarty cat modifier plugin
- *
  * Type:     modifier<br>
  * Name:     cat<br>
  * Date:     Feb 24, 2003
@@ -30,4 +24,4 @@ function smarty_modifier_cat($string, $cat)
 
 /* vim: set expandtab: */
 
-?>
+?>  

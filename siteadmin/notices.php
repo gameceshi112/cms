@@ -14,6 +14,9 @@ $modules_allowed    = array('list', 'add', 'edit', 'add_image', 'list_images', '
 $module             = ( isset($_GET['m']) && in_array($_GET['m'], $modules_allowed) ) ? trim($_GET['m']) : 'list';
 $module_template    = 'notices_list.tpl';
 
+
+
+
 $module_keep = NULL;
 switch ( $module ) {
     case 'edit':

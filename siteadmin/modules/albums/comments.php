@@ -3,7 +3,6 @@ defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/pagination.class.php';
 
 Auth::checkAdmin();
-
 $remove         = NULL;
 $PID            = ( isset($_GET['PID']) && is_numeric($_GET['PID']) ) ? intval(trim($_GET['PID'])) : NULL;
 if ( isset($_GET['a']) && $_GET['a'] == 'delete' ) {

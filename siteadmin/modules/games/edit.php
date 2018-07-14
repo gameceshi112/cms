@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 $game  = array();
 $GID    = ( isset($_GET['GID']) && is_numeric($_GET['GID']) ) ? intval(trim($_GET['GID'])) : NULL;
 if ( !$GID ) {

@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/filter.class.php';
-
 Auth::checkAdmin();
 
 $exists = true;

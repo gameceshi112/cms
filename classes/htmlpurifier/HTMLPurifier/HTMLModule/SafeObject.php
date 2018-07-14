@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A "safe" object module. In theory, objects permitted by this module will
+ * A "safe" . In theory, objects permitted by this module will
  * be safe, and untrusted users can be allowed to embed arbitrary flash objects
  * (maybe other types too, but only Flash is supported as of right now).
  * Highly experimental.

@@ -2,6 +2,7 @@
 defined('_VALID') or die('Restricted Access!');
 class VBandwidth
 {
+	
     public static function check( $ip, $size )
     {
         global $config, $conn, $lang, $user_limit_bandwidth,$type_of_user;

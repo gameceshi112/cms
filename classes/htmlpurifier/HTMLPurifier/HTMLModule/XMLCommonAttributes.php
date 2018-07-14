@@ -3,7 +3,7 @@
 class HTMLPurifier_HTMLModule_XMLCommonAttributes extends HTMLPurifier_HTMLModule
 {
     /**
-     * @type string
+     * @type st
      */
     public $name = 'XMLCommonAttributes';
 

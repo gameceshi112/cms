@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 $server = array('url' => '', 'video_url' => '', 'server_ip' => '', 'ftp_username' => '', 'ftp_password' => '', 'ftp_root' => '');
 if (isset($_POST['add_server'])) {
 	require $config['BASE_DIR']. '/classes/filter.class.php';

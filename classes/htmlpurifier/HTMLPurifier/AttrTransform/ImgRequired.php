@@ -13,8 +13,7 @@ class HTMLPurifier_AttrTransform_ImgRequired extends HTMLPurifier_AttrTransform
 
     /**
      * @param array $attr
-     * @param HTMLPurifier_Config $config
-     * @param HTMLPurifier_Context $context
+     * @pifier_Context $context
      * @return array
      */
     public function transform($attr, $config, $context)

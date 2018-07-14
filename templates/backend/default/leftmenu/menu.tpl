@@ -24,6 +24,7 @@
 				</a>
 			</li>
 			{include file='leftmenu/settings.tpl'}
+		<!-- 	{include file='leftmenu/pools.tpl'} -->
 			{include file='leftmenu/videos.tpl'}
 			{include file='leftmenu/albums.tpl'}
 			{include file='leftmenu/games.tpl'}

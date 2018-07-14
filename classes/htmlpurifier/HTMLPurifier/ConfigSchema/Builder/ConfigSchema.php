@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Converts HTMLPurifier_ConfigSchema_Interchange to our runtime
- * representation used to perform checks on user configuration.
- */
+
 class HTMLPurifier_ConfigSchema_Builder_ConfigSchema
 {
 

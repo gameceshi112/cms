@@ -10,5 +10,6 @@ unset($_SESSION['APASSWORD']);
 
 session_write_close();
 header('Location: index.php');
+
 die();
 ?>

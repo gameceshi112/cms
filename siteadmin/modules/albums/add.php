@@ -1,8 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
-
 $album = array('username' => 'anonymous', 'name' => '', 'tags' => '', 'category' => 0,
                'type' => 'public');
 if ( isset($_POST['add_album']) ) {

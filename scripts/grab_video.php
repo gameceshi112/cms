@@ -3,6 +3,7 @@ define('_VALID', 1);
 define('_ENTER', true);
 define('_CLI', true);
 
+
 // Argvs
 $vid = (int) $_SERVER['argv'][1];
 $vurl = urldecode($_SERVER['argv'][2]);

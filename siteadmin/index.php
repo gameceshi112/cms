@@ -6,7 +6,6 @@ require '../include/function_admin.php';
 require '../classes/validation.class.php';
 require '../classes/auth.class.php';
 require '../classes/filter.class.php';
-
 Auth::checkAdmin();
 
 if ( isset($_GET['err']) ) {

@@ -1,20 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
- * called for included php files within templates
- *
- * @param string $smarty_file
- * @param string $smarty_assign variable to assign the included template's
- *               output into
- * @param boolean $smarty_once uses include_once if this is true
- * @param array $smarty_include_vars associative array of vars from
- *              {include file="blah" var=$var}
- */
 
 //  $file, $assign, $once, $_smarty_include_vars
 

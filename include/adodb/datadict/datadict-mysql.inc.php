@@ -9,7 +9,6 @@
   Set tabs to 4 for best viewing.
  
 */
-
 // security - hide paths
 if (!defined('ADODB_DIR')) die();
 

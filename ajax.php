@@ -3,7 +3,7 @@ define('_VALID', true);
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-
+//
 require 'include/config.paths.php';
 require 'include/config.db.php';
 require 'include/config.local.php';

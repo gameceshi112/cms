@@ -1,4 +1,5 @@
 <?php
+
 defined('_VALID') or die('Hozzáférés megtagadva!');
 $lang = array();
 $lang['global.sign_out'] = 'Kijelentkezés';

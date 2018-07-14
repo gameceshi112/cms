@@ -1,6 +1,7 @@
 <?php
 defined('_VALID') or die('Yetkisiz Giriş!');
 $lang = array();
+
 $lang['global.sign_out'] = 'Çıkış';
 $lang['global.my_feeds'] = 'Destek Taleplerim';
 $lang['global.requests'] = 'İstekler';

@@ -9,6 +9,8 @@ if ( $config['blog_module'] == '0' ) {
         VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }
 
+
+
 $orders_allowed     = array('mr', 'mv', 'md');
 $order              = ( isset($_GET['o']) && in_array($_GET['o'], $orders_allowed) ) ? $_GET['o'] : 'mr';
 $timeframes_allowed = array('t', 'w', 'm', 'a');

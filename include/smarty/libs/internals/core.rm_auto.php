@@ -1,24 +1,10 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
- * delete an automagically created file by name and id
- *
- * @param string $auto_base
- * @param string $auto_source
- * @param string $auto_id
- * @param integer $exp_time
- * @return boolean
- */
 
 // $auto_base, $auto_source = null, $auto_id = null, $exp_time = null
 
 function smarty_core_rm_auto($params, &$smarty)
 {
+	
     if (!@is_dir($params['auto_base']))
       return false;
 

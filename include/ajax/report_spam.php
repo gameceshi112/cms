@@ -5,7 +5,6 @@ require $config['BASE_DIR']. '/classes/filter.class.php';
 require $config['BASE_DIR']. '/include/adodb/adodb.inc.php';
 require $config['BASE_DIR']. '/include/compat/json.php';
 require $config['BASE_DIR']. '/include/dbconn.php';
-
 $data   = array('msg' => '', 'status' => 0, 'debug' => '');
 if ( isset($_POST['type']) && isset($_POST['parent_id']) && isset($_POST['comment_id']) ) {
     if ( isset($_SESSION['uid']) ) {

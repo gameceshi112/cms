@@ -1,14 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
- * Smarty {eval} function plugin
- *
  * Type:     function<br>
  * Name:     eval<br>
  * Purpose:  evaluate a template variable as a template<br>

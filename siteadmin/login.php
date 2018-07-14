@@ -30,6 +30,9 @@ if ( isset($_POST['submit_login']) ) {
     }
 }
 
+
+
+
 if ( isset($_POST['submit_forgot']) ) {
     if ( !isset($_SESSION['email_forgot']) )
         $_SESSION['email_forgot'] = 1;

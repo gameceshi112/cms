@@ -3,7 +3,6 @@ define('_VALID', true);
 define('_ADMIN', true);
 require 'include/config.php';
 require 'include/function_admin.php';
-
 header("Content-type: text/xml"); 
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">'; 
 

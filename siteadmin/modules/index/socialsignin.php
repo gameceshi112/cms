@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 if ( isset($_POST['submit_socialsignin']) ) {
 	$fb_signin 			 = $_POST['fb_signin'];
 	$fb_appid 			 = $_POST['fb_appid'];

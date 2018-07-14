@@ -9,6 +9,17 @@ function get_request()
     return ( isset($request) ) ? explode('/', $request) : array();
 }
 
+function string2array($data) {
+	if($data == '') return array();
+	@eval("\$array = $data;");
+	return $array;
+}
+
+function array2string($data, $isformdata = 1) {
+	if($data == '') return '';
+	if($isformdata) $data = new_stripslashes($data);
+	return addslashes(var_export($data, TRUE));
+}
 function get_request_arg($search, $type = 'INT')
 {
     $arg    = NULL;

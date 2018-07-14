@@ -6,7 +6,6 @@ require '../include/function_global.php';
 require '../include/function_admin.php';
 require '../classes/auth.class.php';
 require '../classes/filter.class.php';
-
 Auth::checkAdmin();
 
     $filter   = new VFilter();

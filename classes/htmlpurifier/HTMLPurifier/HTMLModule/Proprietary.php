@@ -2,7 +2,7 @@
 
 /**
  * Module defines proprietary tags and attributes in HTML.
- * @warning If this module is enabled, standards-compliance is off!
+ * @warled, standards-compliance is off!
  */
 class HTMLPurifier_HTMLModule_Proprietary extends HTMLPurifier_HTMLModule
 {

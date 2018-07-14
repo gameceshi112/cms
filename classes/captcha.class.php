@@ -1,6 +1,10 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 class VCaptcha {
+	
+	
+	
+	
 	public $width;
 	public $height;
 	public $fonts;

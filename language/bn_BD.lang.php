@@ -1,6 +1,7 @@
 <?php 
 defined('_VALID') or die('Restricted Access!'); 
 $lang = array(); 
+
 $lang['global.sign_out'] = 'সাইনআউট'; 
 $lang['global.my_feeds'] = 'আমার ফিডস'; 
 $lang['global.requests'] = 'অনুরোধসমূহ'; 

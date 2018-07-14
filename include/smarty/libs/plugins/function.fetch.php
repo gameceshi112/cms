@@ -2,13 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
-
-
-/**
- * Smarty {fetch} plugin
- *
+ 
  * Type:     function<br>
  * Name:     fetch<br>
  * Purpose:  fetch file, web or ftp data and display results

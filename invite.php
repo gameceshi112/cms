@@ -7,6 +7,8 @@ require 'classes/filter.class.php';
 require 'classes/validation.class.php';
 require 'classes/email.class.php';
 
+
+//
 $message    = "Hey buddy! " .$config['site_name']. " is a site for sharing and hosting porn videos and it's awesome. You should definitely come and join it!";
 $invite     = array('name' => '', 'message' => $message);
 $emails     = array('0' => '', '1' => '', '2' => '', '3' => '', '4' => '');

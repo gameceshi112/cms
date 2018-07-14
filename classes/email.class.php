@@ -1,9 +1,12 @@
 <?php
+
 defined('_VALID') or die('Restricted Access!');
 
 if ( !class_exists('PHPMailer') ) {
     require $config['BASE_DIR']. '/include/phpmailer/class.phpmailer.php';
 }
+
+
 
 class VMail extends PHPMailer
 {

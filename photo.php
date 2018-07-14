@@ -4,11 +4,9 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
-
 if ( $config['photo_module'] == '0' ) {
         VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }
-
 $pid = get_request_arg('photo');
 if ( !$pid ) {
     VRedirect::go($config['BASE_URL']. '/error/photo_missing');

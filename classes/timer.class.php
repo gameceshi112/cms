@@ -1,6 +1,10 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 
+
+
+
+
 class VTimer
 {
     public static function start($name)

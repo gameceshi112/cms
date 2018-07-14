@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Pre-transform that changes deprecated bgcolor attribute to CSS.
- */
 class HTMLPurifier_AttrTransform_BgColor extends HTMLPurifier_AttrTransform
 {
     /**

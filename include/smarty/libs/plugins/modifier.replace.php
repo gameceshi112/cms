@@ -2,11 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty replace modifier plugin
  *
  * Type:     modifier<br>

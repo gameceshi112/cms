@@ -1,13 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-
-/**
- * Smarty truncate modifier plugin
+marty truncate modifier plugin
  *
  * Type:     modifier<br>
  * Name:     truncate<br>

@@ -4,7 +4,6 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'include/function_user.php';
-
 $template   = 'user';
 $options    = getUserQuery();
 $username   = $options['username'];

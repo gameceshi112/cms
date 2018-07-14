@@ -2,7 +2,7 @@
 
 /**
  * A "safe" script module. No inline JS is allowed, and pointed to JS
- * files must match whitelist.
+ * files muitelist.
  */
 class HTMLPurifier_HTMLModule_SafeScripting extends HTMLPurifier_HTMLModule
 {

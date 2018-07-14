@@ -13,20 +13,7 @@
 | Copyright (c) 2001-2003, Brent R. Matzelle                                |
 | ------------------------------------------------------------------------- |
 |   License: Distributed under the Lesser General Public License (LGPL)     |
-|            http://www.gnu.org/copyleft/lesser.html                        |
-| This program is distributed in the hope that it will be useful - WITHOUT  |
-| ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     |
-| FITNESS FOR A PARTICULAR PURPOSE.                                         |
-| ------------------------------------------------------------------------- |
-| We offer a number of paid services (www.codeworxtech.com):                |
-| - Web Hosting on highly optimized fast and secure servers                 |
-| - Technology Consulting                                                   |
-| - Oursourcing (highly qualified programmers and graphic designers)        |
-'---------------------------------------------------------------------------'
 
-/**
- * POP Before SMTP Authentication Class
- * Version 1.0
  *
  * Author: Richard Davey (rich@corephp.co.uk)
  * License: LGPL, see PHPMailer License

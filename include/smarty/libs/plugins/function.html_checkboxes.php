@@ -2,11 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty {html_checkboxes} function plugin
  *
  * File:       function.html_checkboxes.php<br>

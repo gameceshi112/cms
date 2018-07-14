@@ -3,6 +3,8 @@ defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/auth.class.php';
 require $config['BASE_DIR']. '/classes/filter.class.php';
 
+
+//
 Auth::check();
 
 $uid = intval($_SESSION['uid']);

@@ -1,19 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * -----------------------------------------
- * File:    block.scroller.php
- * Type:    block
- * Name:    scroller
- * Params:  speed      scrolling speed
- *          width      width of the box
- *          height     height of the box
- * Author:  Andr\x{00E9} Rabold
- * Purpose: scrolls a text
- * Remarks: Javascript code was stolen from 
- *          http://www.portalzine.de
- * -----------------------------------------
- */
 
 function smarty_block_scroller($params, $content, &$smarty)
 {

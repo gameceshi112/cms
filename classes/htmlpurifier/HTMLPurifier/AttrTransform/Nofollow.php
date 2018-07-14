@@ -1,11 +1,5 @@
 <?php
 
-// must be called POST validation
-
-/**
- * Adds rel="nofollow" to all outbound links.  This transform is
- * only attached if Attr.Nofollow is TRUE.
- */
 class HTMLPurifier_AttrTransform_Nofollow extends HTMLPurifier_AttrTransform
 {
     /**

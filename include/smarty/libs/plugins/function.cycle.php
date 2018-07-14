@@ -1,11 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
+ 
  * Smarty {cycle} function plugin
  *
  * Type:     function<br>

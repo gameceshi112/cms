@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A "safe" embed module. See SafeObject. This is a proprietary element.
+ * A "safSafeObject. This is a proprietary element.
  */
 class HTMLPurifier_HTMLModule_SafeEmbed extends HTMLPurifier_HTMLModule
 {

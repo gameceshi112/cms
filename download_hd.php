@@ -4,6 +4,8 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 
+
+//
 if ($new_permisions['hd_downloads'] == 1) {
     $vid = intval($_GET['id']);
     $sql = "SELECT VID, server FROM video WHERE VID = ".$vid." LIMIT 1";

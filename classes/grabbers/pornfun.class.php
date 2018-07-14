@@ -1,5 +1,4 @@
 <?php
-
 class VGrab_pornfun
 {
     var $url;

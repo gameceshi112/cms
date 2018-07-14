@@ -3,9 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-/**
  * Smarty {html_select_date} plugin
  *
  * Type:     function<br>

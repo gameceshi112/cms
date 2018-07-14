@@ -1,12 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty {html_image} function plugin
  *
  * Type:     function<br>

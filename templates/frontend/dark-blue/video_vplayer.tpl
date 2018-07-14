@@ -40,7 +40,7 @@
 		poster:'material/poster.jpg',//封面图片
 		video: [//视频地址列表形式
 			{section name=i loop=$video.files}
-				['{$video_root}/h264/{$video.files[i].file}', 'video/mp4', '{if $video.files[i].height == 1080}蓝光SD{/if}{if $video.files[i].height == 720}超清{/if}{if $video.files[i].height == 480}高清{/if}{if $video.files[i].height == 360}标清{/if}{if $video.files[i].height == 240}普清{/if}', 0],
+				['{$video.files[i].file}', '', '{if $video.files[i].height == 1080}蓝光SD{/if}{if $video.files[i].height == 720}超清{/if}{if $video.files[i].height == 480}高清{/if}{if $video.files[i].height == 360}标清{/if}{if $video.files[i].height == 240}普清{/if}', 0],
 			{/section}
 				]
 		{rdelim};

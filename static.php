@@ -4,7 +4,6 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/filter.class.php';
-
 $page           = NULL;
 $pages_allowed  = array('terms', 'privacy', 'dmca', '_2257', 'webmasters', 'advertise', 'faq');
 $page           = get_request_arg('static', 'STRING');

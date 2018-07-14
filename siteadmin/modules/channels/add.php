@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 $chimg = $config['BASE_DIR']. '/media/categories/video';
 if ( !file_exists($chimg) or !is_dir($chimg) or !is_writable($chimg) ) {
     $errors[] = 'Category image directory \'' .$chimg. '\' is not writable!';

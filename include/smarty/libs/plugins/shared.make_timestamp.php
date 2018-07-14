@@ -2,14 +2,7 @@
 /**
  * Smarty shared plugin
  * @package Smarty
- * @subpackage plugins
- */
-
-
-/**
- * Function: smarty_make_timestamp<br>
- * Purpose:  used by other smarty functions to make a timestamp
- *           from a string.
+      from a string.
  * @author   Monte Ohrt <monte at ohrt dot com>
  * @param string
  * @return string

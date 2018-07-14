@@ -1,8 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
-
 require $config['BASE_DIR']. '/classes/filter.class.php';
 
 $sql        = "SELECT * FROM grab_cron ORDER BY grab_id DESC";

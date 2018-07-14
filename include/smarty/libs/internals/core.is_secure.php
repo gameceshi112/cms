@@ -1,11 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
+ 
  * determines if a resource is secure or not.
  *
  * @param string $resource_type

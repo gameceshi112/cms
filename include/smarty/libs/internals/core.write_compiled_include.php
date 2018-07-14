@@ -1,17 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
- * Extract non-cacheable parts out of compiled template and write it
- *
- * @param string $compile_path
- * @param string $template_compiled
- * @return boolean
- */
 
 function smarty_core_write_compiled_include($params, &$smarty)
 {

@@ -4,7 +4,7 @@ defined('_VALID') or die('Restricted Access!');
 if ( $config['game_module'] == '0' ) {
     VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }
-
+//
 $slug = get_request_arg('games', 'STRING');
 if ($slug != '') {
 	$sql            = "SELECT category_id FROM game_categories WHERE slug = '".$slug."' LIMIT 1";

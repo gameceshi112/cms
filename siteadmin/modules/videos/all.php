@@ -1,8 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
-
 require $config['BASE_DIR']. '/include/function_video.php';
 require $config['BASE_DIR']. '/include/function_smarty.php';
 require $config['BASE_DIR']. '/classes/pagination.class.php';

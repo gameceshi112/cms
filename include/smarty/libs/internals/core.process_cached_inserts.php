@@ -1,11 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
  * Replace cached inserts with the actual results
  *
  * @param string $results

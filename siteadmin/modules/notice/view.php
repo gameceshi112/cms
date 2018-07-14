@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 Auth::checkAdmin();
-
 $notice = array();
 $NID    = ( isset($_GET['NID']) && is_numeric($_GET['NID']) ) ? intval($_GET['NID']) : NULL;
 if ( $NID ) {

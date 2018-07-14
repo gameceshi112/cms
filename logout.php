@@ -15,6 +15,8 @@ unset($_SESSION['photo']);
 unset($_SESSION['fname']);
 unset($_SESSION['gender']);
 
+
+
 $_SESSION['message'] = $lang['logout.msg'];
 session_write_close();
 header('Location: ' .$config['BASE_URL']);

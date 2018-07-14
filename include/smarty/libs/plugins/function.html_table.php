@@ -2,11 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty {html_table} function plugin
  *
  * Type:     function<br>

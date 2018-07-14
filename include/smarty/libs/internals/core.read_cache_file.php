@@ -1,14 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
- * read a cache file, determine if it needs to be
- * regenerated or not
- *
  * @param string $tpl_file
  * @param string $cache_id
  * @param string $compile_id

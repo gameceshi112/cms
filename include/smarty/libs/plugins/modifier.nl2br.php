@@ -2,14 +2,10 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty plugin
  *
- * Type:     modifier<br>
+ *  Type:     modifier<br>
  * Name:     nl2br<br>
  * Date:     Feb 26, 2003
  * Purpose:  convert \r\n, \r or \n to <<br>>

@@ -33,6 +33,8 @@
  * @package Smarty
  */
 class Smarty_Compiler extends Smarty {
+	
+	
 
     // internal vars
     /**#@+
@@ -73,13 +75,18 @@ class Smarty_Compiler extends Smarty {
 
     var $_strip_depth           =   0;
     var $_additional_newline    =   "\n";
-
+    
+	
+	
+	
+	
     /**#@-*/
     /**
      * The class constructor.
      */
     function Smarty_Compiler()
     {
+		
         // matches double quoted strings:
         // "foobar"
         // "foo\"bar"
@@ -103,6 +110,10 @@ class Smarty_Compiler extends Smarty {
         // 30
         // -12
         // 13.22
+		
+		
+		
+		
         $this->_num_const_regexp = '(?:\-?\d+(?:\.\d+)?)';
 
         // matches $ vars (not objects):

@@ -1,12 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-
-/**
+ 
  * Smarty wordwrap modifier plugin
  *
  * Type:     modifier<br>

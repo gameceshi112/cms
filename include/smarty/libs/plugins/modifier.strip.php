@@ -3,10 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-
-/**
  * Smarty strip modifier plugin
  *
  * Type:     modifier<br>
@@ -23,6 +20,7 @@
  * @param string
  * @return string
  */
+ 
 function smarty_modifier_strip($text, $replace = ' ')
 {
     return preg_replace('!\s+!', $replace, $text);

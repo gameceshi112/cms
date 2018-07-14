@@ -4,7 +4,6 @@ defined('_VALID') or die('Restricted Access!');
 if ( $config['game_module'] == '0' ) {
     die();
 }
-
 require $config['BASE_DIR']. '/classes/filter.class.php';
 require $config['BASE_DIR']. '/include/adodb/adodb.inc.php';
 require $config['BASE_DIR']. '/include/compat/json.php';

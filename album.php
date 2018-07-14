@@ -8,7 +8,6 @@ require 'classes/pagination.class.php';
 if ( $config['photo_module'] == '0' ) {
 	VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }
-
 $module_template    = 'album';
 $page               = ( isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
 $query              = get_request();

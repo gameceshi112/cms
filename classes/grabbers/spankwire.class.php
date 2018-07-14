@@ -1,5 +1,4 @@
 <?php
-
 class VGrab_spankwire
 {
     var $url;

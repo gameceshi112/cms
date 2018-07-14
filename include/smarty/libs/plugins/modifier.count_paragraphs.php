@@ -3,12 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
-
-
-/**
- * Smarty count_paragraphs modifier plugin
- *
+ 
  * Type:     modifier<br>
  * Name:     count_paragraphs<br>
  * Purpose:  count the number of paragraphs in a text

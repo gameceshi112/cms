@@ -4,7 +4,6 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
-
 $page           = ( isset($_GET['page']) && is_numeric($_GET['page']) ) ? intval($_GET['page']) : NULL;
 $orders         = array('on', 'mr', 'mv', 'ma', 'tr', 'mp');
 $order          = ( isset($_GET['o']) && in_array($_GET['o'], $orders) ) ? $_GET['o'] : 'mr';

@@ -1,4 +1,5 @@
 <?php
+
 function smarty_function_private($params, &$smarty)
 {
     global $config;

@@ -5,7 +5,6 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'include/function_notice.php';
 require 'classes/pagination.class.php';
-
 $NID        = get_request_arg('notice');
 if ( !$NID ) {
     VRedirect::go($config['BASE_URL']. '/error');

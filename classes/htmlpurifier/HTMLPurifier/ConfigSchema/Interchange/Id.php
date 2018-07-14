@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Represents a directive ID in the interchange format.
- */
+
 class HTMLPurifier_ConfigSchema_Interchange_Id
 {
 

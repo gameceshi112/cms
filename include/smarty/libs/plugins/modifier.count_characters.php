@@ -3,12 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
 
-
-/**
- * Smarty count_characters modifier plugin
- *
  * Type:     modifier<br>
  * Name:     count_characteres<br>
  * Purpose:  count the number of characters in a text

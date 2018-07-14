@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 Auth::checkAdmin();
-
 if ( isset($_POST['upload_logo']) ) {
     
     if ( $_FILES['logo']['tmp_name'] == '' ) {

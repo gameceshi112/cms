@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Interchange component class describing configuration directives.
- */
+
 class HTMLPurifier_ConfigSchema_Interchange_Directive
 {
 

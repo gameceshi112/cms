@@ -1,11 +1,17 @@
 <?php
 define('_VALID', true);
 require 'include/config.php';
+
 require 'include/function_global.php';
+
 require 'classes/filter.class.php';
+
 require 'classes/validation.class.php';
+
 require 'include/function_smarty.php';
+
 require 'classes/email.class.php';
+
 require 'classes/curl.class.php';
 require 'classes/image.class.php';
 

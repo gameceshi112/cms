@@ -5,7 +5,6 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/filter.class.php';
 require 'classes/pagination.class.php';
-
 $filter             = new VFilter();
 $search_query       = $filter->get('search_query', 'STRING', 'GET');
 $search_type        = get_request_arg('search', 'STRING');

@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/pagination.class.php';
 require $config['BASE_DIR']. '/include/function_global.php';
-
 Auth::checkAdmin();
 
 $page   = (isset($_GET['page'])) ? intval($_GET['page']) : 1;

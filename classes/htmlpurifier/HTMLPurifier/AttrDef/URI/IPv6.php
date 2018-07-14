@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Validates an IPv6 address.
- * @author Feyd @ forums.devnetwork.net (public domain)
- * @note This function requires brackets to have been removed from address
- *       in URI.
- */
+
 class HTMLPurifier_AttrDef_URI_IPv6 extends HTMLPurifier_AttrDef_URI_IPv4
 {
 

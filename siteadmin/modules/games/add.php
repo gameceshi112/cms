@@ -1,6 +1,5 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
 Auth::checkAdmin();
 
 $game  = array('username' => 'anonymous', 'title' => '', 'tags' => '', 'category' => 0, 'type' => 'public', 'status' => 1);

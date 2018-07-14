@@ -1,6 +1,10 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 
+
+
+
+
 class VValidation
 {
     public function username( $username )

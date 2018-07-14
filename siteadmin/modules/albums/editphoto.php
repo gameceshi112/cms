@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 Auth::checkAdmin();
-
 $exists = true;
 $photo  = array();
 $PID    = ( isset($_GET['PID']) && is_numeric($_GET['PID']) && photoExists($_GET['PID']) ) ? intval(trim($_GET['PID'])) : NULL;

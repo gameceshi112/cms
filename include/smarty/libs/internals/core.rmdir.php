@@ -1,19 +1,4 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
-
-/**
- * delete a dir recursively (level=0 -> keep root)
- * WARNING: no tests, it will try to remove what you tell it!
- *
- * @param string $dirname
- * @param integer $level
- * @param integer $exp_time
- * @return boolean
- */
 
 //  $dirname, $level = 1, $exp_time = null
 

@@ -14,6 +14,8 @@ if ( isset($_POST['submit_login']) ) {
         $errors[] = $lang['login.empty'];
     }
     
+	
+	
     if ( !$errors ) {
         $sql    = "SELECT UID, email, pwd, emailverified, photo, fname, logintime, gender,premium
                    FROM signup WHERE username = '" .mysql_real_escape_string($username). "' LIMIT 1";

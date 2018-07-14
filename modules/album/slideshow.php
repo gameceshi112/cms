@@ -21,6 +21,8 @@ if ( $album['type'] == 'private' ) {
     }
 }
 
+
+
 $ids        = array();
 $sql        = "SELECT PID, caption FROM photos WHERE AID = " .$aid. " AND status = '1' ORDER BY PID ASC";
 $rs         = $conn->execute($sql);

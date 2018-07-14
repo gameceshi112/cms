@@ -1,14 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
- * Smarty capitalize modifier plugin
- *
  * Type:     modifier<br>
  * Name:     capitalize<br>
  * Purpose:  capitalize words in the string

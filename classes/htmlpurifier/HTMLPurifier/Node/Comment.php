@@ -7,7 +7,7 @@ class HTMLPurifier_Node_Comment extends HTMLPurifier_Node
 {
     /**
      * Character data within comment.
-     * @type string
+     
      */
     public $data;
 

@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Takes the contents of blockquote when in strict and reformats for validation.
- */
+
 class HTMLPurifier_ChildDef_StrictBlockquote extends HTMLPurifier_ChildDef_Required
 {
     /**

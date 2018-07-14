@@ -2,7 +2,6 @@
 define('_VALID', true);
 require 'include/config.php';
 require 'include/function_global.php';
-
 echo "<h2 style='color:#222'>Multi Server addon for AVS version 2.</h2><hr>";
 if($_POST['submit']){
 	echo "<h3 style='color:red'>Updating database tables</h2>";

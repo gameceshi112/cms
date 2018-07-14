@@ -1,10 +1,11 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
+//
 
 if ( $config['photo_module'] == '0' ) {
     VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }
-
+//
 $slug = get_request_arg('photos', 'STRING');
 if ($slug != '') {
 	$sql            = "SELECT CID FROM album_categories WHERE slug = '".$slug."' LIMIT 1";

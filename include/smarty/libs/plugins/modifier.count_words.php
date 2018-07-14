@@ -2,13 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
- * Smarty count_words modifier plugin
- *
  * Type:     modifier<br>
  * Name:     count_words<br>
  * Purpose:  count the number of words in a text

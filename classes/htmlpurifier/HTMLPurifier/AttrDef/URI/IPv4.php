@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Validates an IPv4 address
- * @author Feyd @ forums.devnetwork.net (public domain)
- */
+
 class HTMLPurifier_AttrDef_URI_IPv4 extends HTMLPurifier_AttrDef
 {
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Responsible for creating definition caches.
+ * Respones.
  */
 class HTMLPurifier_DefinitionCacheFactory
 {

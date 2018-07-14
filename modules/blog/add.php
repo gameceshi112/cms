@@ -2,7 +2,7 @@
 defined('_VALID') or die('Restricted Access!');
 require $config['BASE_DIR']. '/classes/auth.class.php';
 require $config['BASE_DIR']. '/classes/filter.class.php';
-
+//
 if ( $config['blog_module'] == '0' ) {
     VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }

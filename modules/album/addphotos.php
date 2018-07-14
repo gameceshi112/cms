@@ -1,6 +1,7 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 
+
 require $config['BASE_DIR']. '/classes/auth.class.php';
 require $config['BASE_DIR']. '/classes/image.class.php';
 require $config['BASE_DIR']. '/classes/filter.class.php';

@@ -1,23 +1,6 @@
 <?php
 /*
- Navicat MySQL Data Transfer
-
- Source Server         : Loacl
- Source Server Type    : MySQL
- Source Server Version : 100132
- Source Host           : localhost:3306
- Source Schema         : mysql_db
-
- Target Server Type    : MySQL
- Target Server Version : 100132
- File Encoding         : 65001
-
- Date: 09/07/2018 06:52:31
-*/
-/*
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
+ 
 -- ----------------------------
 -- Table structure for grap_video_task
 -- ----------------------------

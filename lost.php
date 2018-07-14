@@ -5,6 +5,9 @@ require 'classes/filter.class.php';
 require 'classes/validation.class.php';
 require 'include/function_smarty.php';
 
+
+
+
 if ( isset($_POST['submit_lost']) ) {
     $filter     = new VFilter();
     $valid      = new VValidation();

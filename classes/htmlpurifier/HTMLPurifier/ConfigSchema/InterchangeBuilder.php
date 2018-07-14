@@ -3,10 +3,7 @@
 class HTMLPurifier_ConfigSchema_InterchangeBuilder
 {
 
-    /**
-     * Used for processing DEFAULT, nothing else.
-     * @type HTMLPurifier_VarParser
-     */
+ 
     protected $varParser;
 
     /**

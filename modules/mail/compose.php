@@ -1,6 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
+//
 $access = true;
 if ( $config['private_msgs'] == 'friends' ) {
     $sql    = "SELECT FID FROM friends WHERE UID = " .$uid. " LIMIT 1";

@@ -4,6 +4,8 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 
+
+
 $vid = intval($_GET['id']);
 
 if (isset($vid)) {

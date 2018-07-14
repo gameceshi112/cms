@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Pre-transform that changes proprietary background attribute to CSS.
- */
+
 class HTMLPurifier_AttrTransform_Background extends HTMLPurifier_AttrTransform
 {
     /**

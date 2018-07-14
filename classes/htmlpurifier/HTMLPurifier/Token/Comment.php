@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Concrete comment token class. Generally will be ignored.
+  Generally will be ignored.
  */
 class HTMLPurifier_Token_Comment extends HTMLPurifier_Token
 {

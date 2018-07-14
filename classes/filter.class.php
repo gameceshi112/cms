@@ -3,6 +3,8 @@ defined('_VALID') or die('Restricted Access!');
 define('TIDY_CLEAN', false);
 
 
+
+
 class VFilter
 {
 	

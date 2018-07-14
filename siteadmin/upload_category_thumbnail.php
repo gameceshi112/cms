@@ -16,7 +16,6 @@ $type = $filter->get('category-thumbnail-type', 'STRING');
 $exts   = array('jpg', 'jpeg', 'png', 'gif');
 $addthumb = 0;
 
-
 require $config['BASE_DIR']. '/classes/image.class.php';
 $image   = new VImageConv();		
 

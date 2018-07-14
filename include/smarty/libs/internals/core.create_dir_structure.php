@@ -1,9 +1,5 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
+
 
 /**
  * create full directory structure

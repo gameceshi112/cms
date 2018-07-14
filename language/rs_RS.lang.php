@@ -1,6 +1,7 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 $lang = array();
+
 $lang['global.sign_out'] = 'Odjava';
 $lang['global.my_feeds'] = 'Moje RSS Novosti';
 $lang['global.requests'] = 'Zahtevi';

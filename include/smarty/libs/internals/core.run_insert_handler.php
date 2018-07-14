@@ -1,16 +1,5 @@
 <?php
-/**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
- * Handle insert tags
- *
- * @param array $args
- * @return string
- */
 function smarty_core_run_insert_handler($params, &$smarty)
 {
 

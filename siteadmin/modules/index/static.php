@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 $allowed_pages  = array('2257.tpl', 'advertise.tpl', 'dmca.tpl', 'faq.tpl', 'privacy.tpl', 'terms.tpl', 'webmasters.tpl', 'whatis.tpl');
 $page           = ( isset($_GET['page']) ) ? $_GET['page'] : '2257.tpl';
 if ( !in_array($page, $allowed_pages) ) {

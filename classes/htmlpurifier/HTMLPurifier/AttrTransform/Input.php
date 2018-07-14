@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Performs miscellaneous cross attribute validation and filtering for
- * input elements. This is meant to be a post-transform.
- */
+
 class HTMLPurifier_AttrTransform_Input extends HTMLPurifier_AttrTransform
 {
     /**

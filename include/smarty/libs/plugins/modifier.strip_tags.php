@@ -3,11 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
-
-
-/**
- * Smarty strip_tags modifier plugin
+y strip_tags modifier plugin
  *
  * Type:     modifier<br>
  * Name:     strip_tags<br>

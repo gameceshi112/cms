@@ -11,7 +11,6 @@ V5.05 11 July 2008   (c) 2000-2008 John Lim. All rights reserved.
   Informix port by Mitchell T. Young (mitch@youngfamily.org)
 
   Further mods by "Samuel CARRIERE" <samuel_carriere@hotmail.com>
-
 */
 
 // security - hide paths

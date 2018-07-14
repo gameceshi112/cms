@@ -1,6 +1,7 @@
 <?php
 //die('Only enable this script if you dont have support for MultiViews');
 $relative = '';
+
 $loaders  = array(
     'ajax' => 1,
     'album' => 1,
@@ -43,13 +44,18 @@ $loaders  = array(
 	'ads' => 1
 );
 
+
+
+
 $query      = ( isset($_SERVER['QUERY_STRING']) ) ? $_SERVER['QUERY_STRING'] : NULL;
 $request    = str_replace($relative, '', $_SERVER['REQUEST_URI']);
 $request    = str_replace('?' .$query, '', $request);
 $request    = explode('/', trim($request, '/'));
+
 if (isset($request['0'])) {
     $page   = $request['0'];
     if (isset($loaders[$page])) {
+
         require $page. '.php';
     } else {
 		header('HTTP/1.0 404 Not Found');

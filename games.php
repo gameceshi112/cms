@@ -4,7 +4,7 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
-
+//
 $slug = get_request_arg('games', 'STRING');
 if ($slug != '') {
 	$sql            = "SELECT category_id FROM game_categories WHERE slug = '".$slug."' LIMIT 1";

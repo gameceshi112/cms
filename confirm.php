@@ -5,6 +5,8 @@ require 'classes/filter.class.php';
 require 'classes/validation.class.php';
 require 'include/function_smarty.php';
 
+
+
 if ( isset($_GET['id']) && isset($_GET['code']) ) {
     $filter     = new VFilter();
     $uid        = $filter->get('id', 'INTEGER', 'GET');

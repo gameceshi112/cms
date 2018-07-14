@@ -1,11 +1,6 @@
 <?php
 /**
- * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-/**
  * Retrieves PHP script resource
  *
  * sets $php_resource to the returned resource

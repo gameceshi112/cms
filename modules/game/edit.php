@@ -1,6 +1,9 @@
 <?php
 define('_VALID', true);
 
+
+
+//11
 require $config['BASE_DIR']. '/classes/auth.class.php';
 require $config['BASE_DIR']. '/classes/filter.class.php';
 

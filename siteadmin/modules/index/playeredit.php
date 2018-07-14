@@ -1,7 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 Auth::checkAdmin();
-
 $profile_id = ( isset($_GET['PID']) && is_numeric($_GET['PID']) ) ? intval($_GET['PID']) : NULL;
 if ( !$profile_id ) {
     $errors[] = 'Player profile id not valid or not set!';

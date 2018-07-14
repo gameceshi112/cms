@@ -2,13 +2,10 @@
 
 /**
  * Transforms FONT tags to the proper form (SPAN with CSS styling)
- *
- * This transformation takes the three proprietary attributes of FONT and
- * transforms them into their corresponding CSS attributes.  These are color,
+ orresponding CSS attributes.  These are color,
  * face, and size.
  *
- * @note Size is an interesting case because it doesn't map cleanly to CSS.
- *       Thanks to
+ * @not
  *       http://style.cleverchimp.com/font_size_intervals/altintervals.html
  *       for reasonable mappings.
  * @warning This doesn't work completely correctly; specifically, this

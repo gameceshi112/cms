@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Dummy AttrDef that mimics another AttrDef, BUT it generates clones
- * with make.
- */
 class HTMLPurifier_AttrDef_Clone extends HTMLPurifier_AttrDef
 {
     /**

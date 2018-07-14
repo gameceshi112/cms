@@ -1,6 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
+//
 require $config['BASE_DIR']. '/classes/pagination.class.php';
 
 if ( isset($_GET['delete']) ) {

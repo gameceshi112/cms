@@ -1,5 +1,6 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
+
 class Ftp
 {
 	const ASCII = FTP_ASCII;

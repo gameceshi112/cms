@@ -4,7 +4,6 @@ require 'include/config.php';
 require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
-
 $slug = get_request_arg('videos', 'STRING');
 if ($slug != '') {
 	$sql            = "SELECT CHID FROM channel WHERE slug = '".$slug."' LIMIT 1";

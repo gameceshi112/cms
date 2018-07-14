@@ -1,12 +1,7 @@
 <?php
 /**
  * Smarty plugin
- * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
  * Smarty translate function plugin
  *
  * Type:     function<br>

@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Converts HTMLPurifier_ConfigSchema_Interchange to an XML format,
- * which can be further processed to generate documentation.
- */
+
 class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
 {
 

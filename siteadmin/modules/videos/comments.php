@@ -2,7 +2,6 @@
 defined('_VALID') or die('Restricted Access!');
 
 Auth::checkAdmin();
-
 require $config['BASE_DIR']. '/classes/pagination.class.php';
 
 $remove         = NULL;

@@ -1,6 +1,7 @@
 <?php
 class MEmbed_empflix
 {
+	
 	public $url;
 	public $user_id;
 	public $category;

@@ -2,13 +2,7 @@
 /**
  * Smarty plugin
  * @package Smarty
- * @subpackage plugins
- */
 
-
-/**
- * Smarty clean modifier plugin
- *
  * Type:     modifier<br>
  * Name:     clean<br>
  * Purpose:  remove all characters except 0-9a-zA-Z and replace spaces with -

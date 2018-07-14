@@ -1,7 +1,7 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
-
-Auth::checkAdmin();
+//好做采集添加修改，注意还原
+//Auth::checkAdmin();
 
 if ( !function_exists('curl_init') ) {
 	$errors[] = 'You need php-curl installed to use this module. See: <a href="http://www.php.net/curl">http://www.php.net/curl</a>!';

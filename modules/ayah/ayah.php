@@ -1,27 +1,6 @@
 <?php 
 /*
- * Are You A Human
- * PHP Integration Library
- *
- * @version 1.1.8
- *
- *    - Documentation and latest version
- *	  http://portal.areyouahuman.com/help
- *    - Get an AYAH Publisher Key
- *	  https://portal.areyouahuman.com
- *    - Discussion group
- *	  http://getsatisfaction.com/areyouahuman
- *
- * Copyright (c) 2013 AYAH LLC -- http://www.areyouahuman.com
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
+ 
  */
 
 // Only define the AYAH class if it does not already exist.

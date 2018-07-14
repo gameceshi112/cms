@@ -11,6 +11,8 @@ if (isset($new_permisions['write_in_blog'])) {
 	}
 }
 
+
+
 if ( $config['blog_module'] == '0' ) {
         VRedirect::go($config['BASE_URL']. '/error/page_invalid');
 }

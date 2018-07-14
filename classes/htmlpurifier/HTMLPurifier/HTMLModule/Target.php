@@ -1,7 +1,7 @@
 <?php
 
 /**
- * XHTML 1.1 Target Module, defines target attribute in link elements.
+ * XHTML 1fines target attribute in link elements.
  */
 class HTMLPurifier_HTMLModule_Target extends HTMLPurifier_HTMLModule
 {

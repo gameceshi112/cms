@@ -5,7 +5,6 @@ require $config['BASE_DIR']. '/classes/filter.class.php';
 require $config['BASE_DIR']. '/include/adodb/adodb.inc.php';
 require $config['BASE_DIR']. '/include/compat/json.php';
 require $config['BASE_DIR']. '/include/dbconn.php';
-
 function construct_vote( $likes, $dislikes )
 {
 	$output     = array();

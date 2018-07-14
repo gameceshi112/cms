@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Validates the HTML attribute lang, effectively a language code.
- * @note Built according to RFC 3066, which obsoleted RFC 1766
- */
+
 class HTMLPurifier_AttrDef_Lang extends HTMLPurifier_AttrDef
 {
 

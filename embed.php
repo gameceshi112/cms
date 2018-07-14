@@ -6,6 +6,9 @@ require 'include/function_smarty.php';
 require 'include/function_thumbs.php';
 
 
+
+
+
 $vkey = get_request_arg('embed', 'STRING');
 if ( !$vkey ) {
 	$smarty->assign('video', $video);

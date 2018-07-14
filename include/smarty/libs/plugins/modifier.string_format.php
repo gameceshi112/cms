@@ -3,11 +3,7 @@
  * Smarty plugin
  * @package Smarty
  * @subpackage plugins
- */
-
-
-/**
- * Smarty string_format modifier plugin
+y string_format modifier plugin
  *
  * Type:     modifier<br>
  * Name:     string_format<br>

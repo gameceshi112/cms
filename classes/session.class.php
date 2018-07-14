@@ -1,6 +1,11 @@
 <?php
 defined('_VALID') or die('Restricted Access!');
 
+
+
+
+
+
 class Session
 {
     private static $_sess_db;

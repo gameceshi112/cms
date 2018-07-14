@@ -6,9 +6,7 @@ require 'include/function_global.php';
 require 'include/function_smarty.php';
 require 'classes/pagination.class.php';
 require 'classes/validation.class.php';
-
 Auth::check();
-
 $username       = ( isset($_GET['u']) && VValidation::username($_GET['u']) && VValidation::usernameExists($_GET['u']) ) ? $_GET['u'] : 'all';
 $table          = ( isset($_GET['t']) && ctype_alpha($_GET['t']) ) ? $_GET['t'] : 'all';
 $tables_allowed = array('all' => 1, 'videos' => 1, 'games' => 1, 'blogs' => 1, 'albums' => 1, 'photos' => 1);

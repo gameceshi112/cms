@@ -5,7 +5,6 @@ require '../include/config.php';
 require '../include/function_admin.php';
 require '../include/function_global.php';
 require '../classes/auth.class.php';
-
 Auth::checkAdmin();
 
 $errors             = ( isset($_GET['err']) ) ? array($_GET['err']) : $errors;
