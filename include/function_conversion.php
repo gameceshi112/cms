@@ -193,7 +193,7 @@ function convert_m3u8($video_path,$e,$vid){
 	
 	//转化为M3U8文件
 	$m3u8_path = $m3u8_storge_path.'index.m3u8';
-	$cmd = $ffmpeg_path.' -i '.$ts_output_path.' -c copy -map 0 -f segment -segment_list '.$m3u8_path.' -segment_time 16 '.$m3u8_storge_path.'index-%03d.ts';
+	$cmd = $ffmpeg_path.' -i '.$ts_output_path.' -c copy -map 0 -f segment -segment_list '.$m3u8_path.' -segment_time 4 '.$m3u8_storge_path.'index-%03d.ts';
 	exec($cmd,$res);
 	log_conversion($log,"start exec cmd:".$cmd);
 	
