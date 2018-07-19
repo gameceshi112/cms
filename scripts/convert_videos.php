@@ -46,7 +46,10 @@ foreach($encodings as $encoding) {
 	//转化成m3u8视频
 	if($config['multi_server'] == '1'){
 		$server = get_server();
-		upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);	
+		if(!empty($m3u8_path)){
+			upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+		}
+		
 		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
 		executeQuery($sql);
 		upload_video($flv, $iphone, $hd, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);

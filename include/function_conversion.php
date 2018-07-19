@@ -179,6 +179,7 @@ function convert_m3u8($video_path,$e,$vid){
 	if(!file_exists($video_path)){
 		$log = $config['LOG_DIR']. '/' .$vid. '.log';
 		log_conversion($log,"start convert m3u8,but not find file,return!\n");
+		return '';
 	}else{
 		$log = $config['LOG_DIR']. '/' .$vid. '.log';
 		log_conversion($log,"start convert m3u8\n");
