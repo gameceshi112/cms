@@ -170,7 +170,7 @@ function write_m3u8($file_url,$ad_url,$ad_length){
 		$tags = explode("#EXTINF",$str);
 		$old_header = $tags[0];
 		$ad_length = $ad_length;
-		$new_header = $old_header."#EXTINF:".$ad_length.",\n".$ad_url."\n#EXT-X-DISCONTINUITY\n";
+		$new_header = $old_header.$ad_url;
 		$new_str = str_replace($old_header,$new_header,$str);
 		$myfile = file_put_contents($file_url,$new_str);
 }
