@@ -176,8 +176,14 @@ function write_m3u8($file_url,$ad_url,$ad_length){
 }
 function convert_m3u8($video_path,$e,$vid){
 	global $config;
-	$log = $config['LOG_DIR']. '/' .$vid. '.log';
-	log_conversion($log,"start convert m3u8\n");
+	if(!file_exists($video_path)){
+		$log = $config['LOG_DIR']. '/' .$vid. '.log';
+		log_conversion($log,"start convert m3u8,but not find file,return!\n");
+	}else{
+		$log = $config['LOG_DIR']. '/' .$vid. '.log';
+		log_conversion($log,"start convert m3u8\n");
+	}
+	
 	//创建TS目录
 	$md5_path = md5(time().mt_rand(0,10000));
 	$m3u8_storge_path = $config['M3U8_DIR'].DIRECTORY_SEPARATOR.$md5_path.DIRECTORY_SEPARATOR;
@@ -193,7 +199,7 @@ function convert_m3u8($video_path,$e,$vid){
 	
 	//转化为M3U8文件
 	$m3u8_path = $m3u8_storge_path.'index.m3u8';
-	$cmd = $ffmpeg_path.' -i '.$ts_output_path.' -c copy -map 0 -f segment -segment_list '.$m3u8_path.' -segment_time 4 '.$m3u8_storge_path.'index-%03d.ts';
+	$cmd = $ffmpeg_path.' -i '.$ts_output_path.' -c copy -map 0 -f segment -segment_list '.$m3u8_path.' -segment_time 3 '.$m3u8_storge_path.'index-%03d.ts';
 	exec($cmd,$res);
 	log_conversion($log,"start exec cmd:".$cmd);
 	
@@ -253,19 +259,6 @@ function convert ($e, $vid, $video_name, $video_info) {
 				$scale = "-vf scale=\"'if(gt(a,4/3),".$e['width'].",-1)':'if(gt(a,4/3),-1,".$e['height'].")'\"";
 			}
 			$scale = scale($video_info['width'], $video_info['height'], $e['width'], $e['height']);
-			
-		/*	if($video_info['height']>$e['height']){
-				$height = $e['height'];
-			}else{
-				$height = $video_info['height'];
-			}
-			if($video_info['width']>$e['width']){
-				$width = $e['width'];
-			}else{
-				$width = $video_info['width'];
-			}
-			///usr/bin/ffmpeg/bin/ffmpeg -i /www/wwwroot/demo.1788av.com/media/videos/vid/343.mp4 -c:v libx264 -vf scale=320:180 /www/wwwroot/demo.1788av.com/media/videos/h264/343_480p.mp4
-			$scale =$width."x".$height;*/
 			$cmd = $config['ffmpeg']." -i ".$src." -c:v libx264 -preset ".$e['preset']." -crf ".$e['crf']." ".$scale." ".$e['ios']." ".$faststart." ".$output."";
 			$output = $config['H264_DIR']."/".$vid."_".$e['label'].".".$e['format'];
 		//	$cmd = $config['ffmpeg']." -i ".$src.' -s '.$scale." ".$output."";
@@ -297,8 +290,8 @@ function convert ($e, $vid, $video_name, $video_info) {
 			}
 		}
 	} else {
-		echo "\n"."SKIP CONVERSION: Output resolution is higher than the input resloution!\n\n";
-		echo "\n"."SKIP CONVERSION: Output resolution is higher than the input resloution!\n\n";
+		$log =  "\n"."SKIP CONVERSION: Output resolution is higher than the input resloution!\n\n";
+		log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	}
 }
 
