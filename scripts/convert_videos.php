@@ -71,7 +71,7 @@ if($config['multi_server'] == '1'){
 postConversion($vid,$video_path);
 //删除原来的MP4文件
 if(file_exists($config['VDO_DIR']."/".$video_name)){
-	unlink($config['VDO_DIR']."/".$video_name);
+	//unlink($config['VDO_DIR']."/".$video_name);
 }
 
 // Display :: Encoder Core End
