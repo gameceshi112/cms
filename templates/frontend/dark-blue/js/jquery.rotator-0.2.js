@@ -10,7 +10,7 @@ function thumb_path( vid ) {
 	if ( index !== 0 ) {
 		tmb_folder = 'tmb'+ index;
 	}
-	var path = base_url + '/media/videos/' + tmb_folder;
+	var path = pic_baseurl + '/media/videos/' + tmb_folder;
     return path;
 }
 $(document).ready(function() {

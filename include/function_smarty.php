@@ -446,9 +446,41 @@ function insert_thumb_path($options)
 	if ($index !== 0) {
 		$tmb_folder = 'tmb'.$index;
 	}
+	
+	if($config['multi_server'] == '1'){
+			if(!empty($config['SERVICE_URL'])){
+				
+			}else{
+			global $conn;
+			$sql = "SELECT * FROM servers WHERE status = '1'";
+			$sql2 = "SELECT COUNT(server_id) AS total_server FROM servers WHERE status = '1' ORDER BY last_used ASC";
+			$rs  = $conn->execute($sql);
+			if ($conn->Affected_Rows()) {
+				$servers = $rs->getrows();			
+				$total_serv = $rs->RecordCount();
+				$counter = $total_serv-1;	
+				for ( $i = 0; $i < $total_serv; $i++)
+				{	
+					if ($servers[$i]['current_used'] == 1)
+					{
+					  if ($i < $counter)
+					  {
+						$params = $i+1;
+					  }
+					  else
+					  {
+						$params = 0;
+					  }
+					  $config['SERVICE_URL'] = $servers[$i]['video_url'];
+					}
 
-	$output = $config['BASE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
-
+				}
+			}	
+		}
+		$output = $config['SERVICE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
+	}else{
+		$output = $config['BASE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
+	}
 	return $output;
 }
 
@@ -468,16 +500,50 @@ function insert_thumb_adm($options)
 	$path = $config['BASE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
 	$path_dir = $config['BASE_DIR'].'/media/videos/'.$tmb_folder.'/'.$vid;
 	
-	$output = array();
+	if($config['multi_server'] == '1'){
+			if(!empty($config['SERVICE_URL'])){
+				
+			}else{
+			global $conn;
+			$sql = "SELECT * FROM servers WHERE status = '1'";
+			$sql2 = "SELECT COUNT(server_id) AS total_server FROM servers WHERE status = '1' ORDER BY last_used ASC";
+			$rs  = $conn->execute($sql);
+			if ($conn->Affected_Rows()) {
+				$servers = $rs->getrows();			
+				$total_serv = $rs->RecordCount();
+				$counter = $total_serv-1;	
+				for ( $i = 0; $i < $total_serv; $i++)
+				{	
+					if ($servers[$i]['current_used'] == 1)
+					{
+					  if ($i < $counter)
+					  {
+						$params = $i+1;
+					  }
+					  else
+					  {
+						$params = 0;
+					  }
+					  $config['SERVICE_URL'] = $servers[$i]['video_url'];
+					}
 
+				}
+			}	
+		}
+		$path_dir = $config['SERVICE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
+	}else{
+		$path_dir = $config['BASE_URL'].'/media/videos/'.$tmb_folder.'/'.$vid;
+	}
+	
 	$tmb = $path_dir.'/'.$thumb.'.jpg';
-	$tmb_url = $path.'/'.$thumb.'.jpg';
+	return $tmb;
+	/*$tmb_url = $path.'/'.$thumb.'.jpg';
 	$tmb_url_def = $config['BASE_URL'].'/media/videos/tmb/default.jpg';
 	if (file_exists($tmb) && is_file($tmb)) {
 		return $tmb_url;	
 	} else {
 		return $tmb_url_def;
-	}
+	}*/
 }
 
 ?>

@@ -33,6 +33,7 @@
 
     <script type="text/javascript">
     var base_url = "{$baseurl}";
+	var pic_baseurl = "{$pic_baseurl}";
 	var max_thumb_folders = "{$max_thumb_folders}";
     var tpl_url = "{$relative_tpl}";
 	{if isset($video.VID)}var video_id = "{$video.VID}";{/if}

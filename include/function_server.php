@@ -52,9 +52,55 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root)
 	}
 	ftp_close($conn_id);
 }
+
+
+
+function upload_pics($pic_path, $ip, $username, $password, $ftp_root)
+{
+	$conn_id    = ftp_connect($ip);
+	$ftp_login  = ftp_login($conn_id, $username, $password);
+	if ( !$conn_id or !$ftp_login ) {
+        die('Failed to connect to FTP server!');
+    }
+	ftp_pasv($conn_id, 1);
+	if ( !ftp_chdir($conn_id, $ftp_root) ) {
+	    die('Failed to change directory to: ' .$ftp_root);
+	}		
+	
+	if (file_exists($pic_path)) {
+		if ( !ftp_chdir($conn_id, 'tmb') ) {
+		    die('Failed to change directory to: tmb');
+		}
+		$paths = explode(DIRECTORY_SEPARATOR,$pic_path);
+		$index = count($paths)-2;
+		
+		$dirname = $paths[$index];
+		//var_dump($paths);die();
+		ftp_mkdir($conn_id,$dirname);
+		if ( !ftp_chdir($conn_id, $dirname) ) {
+		    die('Failed to change directory to:'.$dirname);
+		}
+		$files = listDir($pic_path);
+		foreach($files as $file){
+			$file_path = $pic_path.$file;
+			ftp_delete($conn_id, $file);
+			echo "send file ".$file_path.'to'.$file;
+			ftp_put($conn_id, $file, $file_path , FTP_BINARY);
+			ftp_site($conn_id, sprintf('CHMOD %u %s', 777, $filename));
+			unlink($file_path);
+		}
+		if ( !ftp_chdir($conn_id, '..') ) {
+		    die('Failed to change directory to: ' .$ftp_root);
+	    }	
+	}else{
+	   echo 'no pics:'.$hd;
+	}
+	ftp_close($conn_id);
+}
+
 function get_server()
 {
- global $conn;
+	global $conn;
 	$sql = "SELECT * FROM servers WHERE status = '1'";
 	$sql2 = "SELECT COUNT(server_id) AS total_server FROM servers WHERE status = '1' ORDER BY last_used ASC";
 	$rs  = $conn->execute($sql);

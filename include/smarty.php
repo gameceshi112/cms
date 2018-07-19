@@ -19,6 +19,42 @@ foreach ( $config as $key => $value ) {
 $smarty->assign('languages', $languages);
 
 $smarty->assign('bgcolor',      '#E8E8E8');
+if($config['multi_server'] == '1'){
+			if(!empty($config['SERVICE_URL'])){
+				
+			}else{
+			global $conn;
+			$sql = "SELECT * FROM servers WHERE status = '1'";
+			$sql2 = "SELECT COUNT(server_id) AS total_server FROM servers WHERE status = '1' ORDER BY last_used ASC";
+			$rs  = $conn->execute($sql);
+			if ($conn->Affected_Rows()) {
+				$servers = $rs->getrows();			
+				$total_serv = $rs->RecordCount();
+				$counter = $total_serv-1;	
+				for ( $i = 0; $i < $total_serv; $i++)
+				{	
+					if ($servers[$i]['current_used'] == 1)
+					{
+					  if ($i < $counter)
+					  {
+						$params = $i+1;
+					  }
+					  else
+					  {
+						$params = 0;
+					  }
+					  $config['SERVICE_URL'] = $servers[$i]['video_url'];
+					}
+
+				}
+			}	
+		}
+		$config['SERVICE_URL'] = str_replace('media/videos','',$config['SERVICE_URL']);
+		$output = $config['SERVICE_URL'].'/'.$tmb_folder.'/'.$vid;
+		$smarty->assign('pic_baseurl',    $config['SERVICE_URL']);
+	}else{
+		$smarty->assign('pic_baseurl',    $config['BASE_URL']);
+	}
 $smarty->assign('baseurl',    $config['BASE_URL']);
 $smarty->assign('basedir',    $config['BASE_DIR']);
 $smarty->assign('relative',   $config['RELATIVE']);

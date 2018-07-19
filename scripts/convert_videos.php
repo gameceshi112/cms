@@ -25,6 +25,7 @@ echo "Parameters:\n";
 echo "Video Name: $video_name\n";
 echo "Vidoe ID: $vid\n";
 echo "Video Path: $video_path\n\n";
+
 // Error Checks
 if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 	echo "Video Name: $video_name is invalid. Err #1. Exiting ..."; exit();
@@ -35,9 +36,9 @@ if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 // Get Encoder
 $encodings = getEncodings();
 foreach($encodings as $encoding) {
+	
 	convert($encoding, $vid, $video_name, $video_info);
 	$output = $config['H264_DIR']."/".$vid."_".$encoding['label'].".".$encoding['format'];
-	echo "\n".$nl."Multi Server\n".$nl;
 	$flv = $config['FLVDO_DIR'].'/'.$vid.'.flv';
 	$iphone = $config['IPHONE_DIR'].'/'.$vid.'.mp4';
 	$hd = $output;
@@ -49,7 +50,6 @@ foreach($encodings as $encoding) {
 		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
 		executeQuery($sql);
 		upload_video($flv, $iphone, $hd, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
-		echo "\n ==Video Uploaded to multi server==";
 		if(file_exists($flv) && filesize($flv) > 100){
 			$skip = true;
 		}
@@ -61,9 +61,19 @@ foreach($encodings as $encoding) {
 		@unlink($iphone);	
 	}	
 }
-
 postThumbs($vid,$video_path);
+//上传文件
+$pic_path =  $config['BASE_DIR'].DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'videos'.DIRECTORY_SEPARATOR.'tmb'.DIRECTORY_SEPARATOR.$vid.DIRECTORY_SEPARATOR;
+if($config['multi_server'] == '1'){
+	$server = get_server();
+	upload_pics($pic_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+}
 postConversion($vid,$video_path);
+//删除原来的MP4文件
+if(file_exists($config['VDO_DIR']."/".$video_name)){
+	unlink($config['VDO_DIR']."/".$video_name);
+}
+
 // Display :: Encoder Core End
 echo "\n<-- End of Script -->\n\n";
 exit();

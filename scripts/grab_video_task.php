@@ -74,6 +74,9 @@ if ( $conn->Affected_Rows() != 1 ) {
 		$md5 = md5_file($vdo_path);
 		$file_size = filesize($vdo_path);
 		
+		$sql = "UPDATE grap_video_task set msg='文件下载成功' WHERE id=".$task[id];
+		$rs  = $conn->execute($sql);
+		
 		//判断文件是否已经下载过
 		$sql = "SELECT * FROM grap_video_task WHERE md5 ='".$md5."' LIMIT 1";	
 		$rs  = $conn->execute($sql);	
@@ -122,6 +125,9 @@ if ( $conn->Affected_Rows() != 1 ) {
 		    	." ".$video_id
 		    	." ".$new_vdo_path
 		    ."";
+			$log = $config['LOG_DIR']. '/' .$video_id. '.log';
+			log_conversion($log,"start convert download file");
+			log_conversion($log,$cmd);
 			shell_exec($cmd);
 			$duration    = get_video_duration($new_vdo_path, $video_id);
 			$sql         = "UPDATE video SET 
