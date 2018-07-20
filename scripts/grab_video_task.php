@@ -126,7 +126,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 		    	." ".$new_vdo_path
 		    ."";
 			$log = $config['LOG_DIR']. '/' .$video_id. '.log';
-			log_conversion($log,"start convert download file");
+			log_conversion($log,"start convert file");
 			log_conversion($log,$cmd);
 			shell_exec($cmd);
 			$duration    = get_video_duration($new_vdo_path, $video_id);
@@ -134,7 +134,8 @@ if ( $conn->Affected_Rows() != 1 ) {
 							duration = '" .mysql_real_escape_string($duration). "', 
 							vdoname = '" .mysql_real_escape_string($vdoname). "' 
 							WHERE VID = " .intval($video_id). " LIMIT 1";
-			$conn->execute($sql);	 
+			$conn->execute($sql);
+			log_conversion($log,"end convert download file,task finlished");
 			$sql = "UPDATE grap_video_task set status=2,msg='任务正常完成',md5 = '".$md5."' , file_size=".$file_size." WHERE id=".$task[id];
 			$rs  = $conn->execute($sql);
 		}else{
