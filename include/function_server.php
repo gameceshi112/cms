@@ -11,20 +11,26 @@ function listDir($dir){
 	return $files;
 }
 
-function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root)
+function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root,$vid)
 {
 
 	$conn_id    = ftp_connect($ip);
 	$ftp_login  = ftp_login($conn_id, $username, $password);
 	if ( !$conn_id or !$ftp_login ) {
+		$log =  "Failed to connect to FTP server!\n\n";
+		log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
         die('Failed to connect to FTP server!');
     }
 	ftp_pasv($conn_id, 1);
 	if ( !ftp_chdir($conn_id, $ftp_root) ) {
+		$log =  "Failed to change directory to".$ftp_root."!\n\n";
+		log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	    die('Failed to change directory to: ' .$ftp_root);
 	}
 	if (file_exists($m3u8_path)) {
 		if ( !ftp_chdir($conn_id, 'm3u8') ) {
+				$log =  "Failed to change directory to: m3u8!\n\n";
+			    log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		    die('Failed to change directory to: m3u8');
 		}
 		$paths = explode(DIRECTORY_SEPARATOR,$m3u8_path);
@@ -33,6 +39,8 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root)
 		
 		ftp_mkdir($conn_id,$dirname);
 		if ( !ftp_chdir($conn_id, $dirname) ) {
+			$log =  "Failed to change directory to".$dirname."!\n\n";
+		    log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		    die('Failed to change directory to:'.$dirname);
 		}
 		$files = listDir($m3u8_path);
@@ -45,9 +53,13 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root)
 			unlink($file_path);
 		}
 		if ( !ftp_chdir($conn_id, '..') ) {
+			$log =  "2Failed to change directory to".$ftp_root."!\n\n";
+		    log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		    die('Failed to change directory to: ' .$ftp_root);
 	    }	
 	}else{
+	   $log =  "no m3u8 here\n\n";
+	   log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	   echo 'no hd:'.$hd;
 	}
 	ftp_close($conn_id);

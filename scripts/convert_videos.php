@@ -49,7 +49,7 @@ foreach($encodings as $encoding) {
 		if(!empty($m3u8_path)){
 			$log =  "start send m3u8 to server\n\n";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
-			upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+			upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root'],$vid);
 			$log =  "send m3u8 to server ok!\n\n";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		}
