@@ -14,6 +14,8 @@ function listDir($dir){
 function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root,$vid)
 {
 
+	$log =  "enter the function !\n\n";
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	$conn_id    = ftp_connect($ip);
 	$ftp_login  = ftp_login($conn_id, $username, $password);
 	if ( !$conn_id or !$ftp_login ) {
