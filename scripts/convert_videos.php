@@ -47,12 +47,20 @@ foreach($encodings as $encoding) {
 	if($config['multi_server'] == '1'){
 		$server = get_server();
 		if(!empty($m3u8_path)){
+			$log =  "start send m3u8 to server\n\n";
+			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 			upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+			$log =  "send m3u8 to server ok!\n\n";
+			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		}
 		
 		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
 		executeQuery($sql);
+		$log =  "start send mp4 to server\n\n";
+		log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		upload_video($flv, $iphone, $hd, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+		$log =  "send mp4 to server ok\n\n";
+		log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 		if(file_exists($flv) && filesize($flv) > 100){
 			$skip = true;
 		}
