@@ -34,7 +34,7 @@ function log_conversion2($file_path, $text)
 }  
 function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root,$vid)
 {
-
+	global $config;
 	$log =  "enter the function !\n\n";
 	log_conversion2($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	$conn_id    = ftp_connect($ip);
