@@ -33,7 +33,7 @@ require $basedir. '/include/function_video.php';
  ini_set('memory_limit','-1');
 $curl = new VCurl();
 $max_allow_num = 1;
-$time_out = 600;
+$time_out = 6000;
 //判断当前执行的任务数量 status = 10;
 $sql = "SELECT * FROM grap_video_task WHERE status = 10";
 $rs  = $conn->execute($sql);
