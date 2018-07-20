@@ -64,19 +64,28 @@ foreach($encodings as $encoding) {
 		@unlink($iphone);	
 	}	
 }
+$log =  "start shengcheng tu pian\n\n";
+log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 postThumbs($vid,$video_path);
+$log =  "shengcheng tu pian wancheng \n\n";
+log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 //上传文件
 $pic_path =  $config['BASE_DIR'].DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'videos'.DIRECTORY_SEPARATOR.'tmb'.DIRECTORY_SEPARATOR.$vid.DIRECTORY_SEPARATOR;
 if($config['multi_server'] == '1'){
 	$server = get_server();
+	$log =  "start shangchuan tu pian \n\n";
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 	upload_pics($pic_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root']);
+	$log =  "shangchuantu pian wancheng \n\n";
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 }
 postConversion($vid,$video_path);
 //删除原来的MP4文件
 if(file_exists($config['VDO_DIR']."/".$video_name)){
 	//unlink($config['VDO_DIR']."/".$video_name);
 }
-
+$log =  "zhuangma wancheng\n\n";
+log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 // Display :: Encoder Core End
 echo "\n<-- End of Script -->\n\n";
 exit();
