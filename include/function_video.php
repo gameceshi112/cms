@@ -422,7 +422,7 @@ function log_conversion($file_path, $text)
         return false;
     }
                                                 
-    if( fwrite($handle, $text. "\n") == false ) {
+    if( fwrite($handle, date("Y-m-d H:i:s").':'.$text. "\n") == false ) {
         return false;
     }
                                                             
