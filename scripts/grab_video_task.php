@@ -124,6 +124,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 		    	." ".$vdoname
 		    	." ".$video_id
 		    	." ".$new_vdo_path
+				." ".'true'
 		    ."";
 			$log = $config['LOG_DIR']. '/' .$video_id. '.log';
 			log_conversion($log,"start convert file");

@@ -111,6 +111,7 @@ if ( isset($_POST['video_upload_started']) ) {
 		    	." ".$vdoname
 		    	." ".$video_id
 		    	." ".$vdo_path
+				." "."false"
 		    ."";
             log_conversion($config['LOG_DIR']. '/' .$video_id. '.log', $cmd);
             $lg = $config['LOG_DIR']. '/' .$video_id. '.log2';

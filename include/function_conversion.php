@@ -18,6 +18,26 @@ function scale ($iw, $ih, $rw, $rh) {
 	return $scale;
 }
 
+function delogo_video($vid,$param,$video_name){
+	global $config;
+	$log = $config['LOG_DIR']. '/' .$vid. '.log';
+	$ffmpeg_path = $config['ffmpeg'];
+	$video_path = $config['VDO_DIR']."/".$video_name;
+	$out_path = $config['VDO_DIR']."/".$vid."_nolog.mp4";;
+	$cmd = $ffmpeg_path." -i ".$video_path." -vf ".$param." ".$out_path;
+	log_conversion($log,"执行去除水印命令cmd:".$cmd);
+	modproc($cmd);
+	
+	if(!file_exists($out_path)||filesize($out_path)<1000){
+		log_conversion($log,"去除水印失败，退出程序");
+		exit();
+	}
+	log_conversion($log,"执行去除水印命令成功完成");
+	log_conversion($log,"删除原始文件");
+	unlink($video_path);
+	log_conversion($log,"重新命名新文件");
+	rename($out_path,$video_path);	
+}
 function ratio($a, $b) {
     $gcd = function($a, $b) use (&$gcd) {
         return ($a % $b) ? $gcd($b, $a % $b) : $b;

@@ -8,7 +8,10 @@ define('_CLI', true);
 $video_name = $_SERVER['argv'][1];
 $vid = (int) $_SERVER['argv'][2];
 $video_path = $_SERVER['argv'][3];
-
+$video_delogo_param = null;
+if(isset($_SERVER['argv'][4])){
+	$video_delogo = $_SERVER['argv'][4];
+}
 // Required
 $basedir = dirname(dirname(__FILE__));
 require $basedir. '/include/config.php';
@@ -26,6 +29,10 @@ echo "Video Name: $video_name\n";
 echo "Vidoe ID: $vid\n";
 echo "Video Path: $video_path\n\n";
 
+
+
+
+
 // Error Checks
 if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 	echo "Video Name: $video_name is invalid. Err #1. Exiting ..."; exit();
@@ -33,6 +40,18 @@ if (!preg_match("/^[0-9]{1,5}\.[a-z0-9]{2,4}$/i", $video_name)) {
 	$ffp_data = get_ffprobe_data($video_path);
 	$video_info = ffpInfo($ffp_data);
 }
+if($video_delogo == 'true'){
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log',"检测到有水印命令，开始去除水印程序");
+	//1024*576
+	$x = intval($video_info['width']*0.86);
+	$y = intval($video_info['height']*0.86);
+	$w = intval($video_info['width']*0.13);
+	$h = intval($video_info['height']*0.123);
+	$param = "delogo=x=$x:y=$y:w=$w:h=$h";
+	//$param = "delogo=x=880:y=500:w=138:h=66";
+	delogo_video($vid,$param,$video_name);
+}
+
 // Get Encoder
 $encodings = getEncodings();
 foreach($encodings as $encoding) {
