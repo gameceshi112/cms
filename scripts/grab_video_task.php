@@ -16,11 +16,16 @@ CREATE TABLE `grap_video_task`  (
   `msg` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+添加字段
+
+alter table grap_video_task add COLUMN keywords varchar(500);
+alter table grap_video_task add COLUMN thumburl varchar(500);
+alter table grap_video_task add COLUMN category int(3);
 
 -- ----------------------------
 -- Records of grap_video_task
 -- ----------------------------
-INSERT INTO `grap_video_task` VALUES (3, 1, 'http://www.aotu47.com/file/17820/1/597bffbd7c8bc76df72a/1531099227/mp4/17820.mp4', '1', '076f4', 32495786, 1531143636, '请求超时');
+INSERT INTO `` VALUES (3, 1, 'http://www.aotu47.com/file/17820/1/597bffbd7c8bc76df72a/1531099227/mp4/17820.mp4', '1', '076f4', 32495786, 1531143636, '请求超时');
 
 SET FOREIGN_KEY_CHECKS = 1;*/
 define('_VALID', 1);
@@ -83,10 +88,9 @@ if ( $conn->Affected_Rows() != 1 ) {
 		if ( $conn->Affected_Rows() != 1 ) {
 			//传入参数
 			$title      = $task['title'];
-			$cate      = $task['title'];
-			$keywords   = $task['title'];
+			$keywords   = $task['keywords'];
 			$paysite    = $task['title'];
-			$category    = $task['title'];
+			$category    = $task['category'];
 			$space = $file_size;
 			$privacy    = 'public';
 			$anonymous  = 'yes';
@@ -100,10 +104,11 @@ if ( $conn->Affected_Rows() != 1 ) {
 			$uid                    =  1;
 			$sql        = "INSERT INTO video 
                        SET UID = " .$uid. ", title = '" .mysql_real_escape_string($title). "',
-                           channel = " ."1". ", keyword = '" .mysql_real_escape_string($keywords). "',
+                           channel = " .$category. ", keyword = '" .mysql_real_escape_string($keywords). "',
 						   description = '".mysql_real_escape_string($description)."', 
                            space = '" .$space. "', addtime = '" .time(). "', adddate = '" .date('Y-m-d'). "', vkey = '" .mt_rand(). "', 
                            type = '" .$video['privacy']. "', active = '2'";
+			echo $sql;die();
 			$conn->execute($sql);
 			$video_id   = mysql_insert_id();
 		
@@ -119,15 +124,20 @@ if ( $conn->Affected_Rows() != 1 ) {
 			}
 			
 			$cgi = ( strpos(php_sapi_name(), 'cgi') ) ? 'env -i ' : NULL;
+			$thumb_img = '';
+			if(!empty($task['thumburl'])){
+				$thumb_img = $task['thumburl'];
+			}
 			$cmd = $cgi.$config['phppath']
 		    	." ".$config['BASE_DIR']."/scripts/convert_videos.php"
 		    	." ".$vdoname
 		    	." ".$video_id
 		    	." ".$new_vdo_path
 				." ".'true'
+				.$thumb_img
 		    ."";
 			$log = $config['LOG_DIR']. '/' .$video_id. '.log';
-			log_conversion($log,"start convert file");
+			log_conversion($log,"文件下载完成，开始转码，启动脚本:".$cmd);
 			log_conversion($log,$cmd);
 			shell_exec($cmd);
 			$duration    = get_video_duration($new_vdo_path, $video_id);

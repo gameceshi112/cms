@@ -12,6 +12,10 @@ $video_delogo_param = null;
 if(isset($_SERVER['argv'][4])){
 	$video_delogo = $_SERVER['argv'][4];
 }
+$thumb_img = '';
+if(isset($_SERVER['argv'][5])){
+	$thumb_img = $_SERVER['argv'][5];
+}
 // Required
 $basedir = dirname(dirname(__FILE__));
 require $basedir. '/include/config.php';
@@ -94,10 +98,22 @@ foreach($encodings as $encoding) {
 $log =  "start shengcheng tu pian\n\n";
 log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
 postThumbs($vid,$video_path);
+$pic_path =  $config['BASE_DIR'].DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'videos'.DIRECTORY_SEPARATOR.'tmb'.DIRECTORY_SEPARATOR.$vid.DIRECTORY_SEPARATOR;
+	
+//如果有图片需要下载的话
+if($thumb_img){
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "检测到缩略图需要下载");
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "开始下载缩略图".$thumb_img);
+	$cmd = "wget -c '".$thumb_img."' -o ".$pic_path.'100.jpg';
+	exec($cmd);
+	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "缩略图西在完成");
+	$sql = "UPDATE video SET thumb = 100 WHERE VID = '".(int)$vid."'";
+	executeQuery($sql);
+}
+
 $log =  "shengcheng tu pian wancheng \n\n";
 log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
-//上传文件
-$pic_path =  $config['BASE_DIR'].DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'videos'.DIRECTORY_SEPARATOR.'tmb'.DIRECTORY_SEPARATOR.$vid.DIRECTORY_SEPARATOR;
+
 if($config['multi_server'] == '1'){
 	$server = get_server();
 	$log =  "start shangchuan tu pian \n\n";
@@ -109,7 +125,7 @@ if($config['multi_server'] == '1'){
 postConversion($vid,$video_path);
 //删除原来的MP4文件
 if(file_exists($config['VDO_DIR']."/".$video_name)){
-	//unlink($config['VDO_DIR']."/".$video_name);
+	unlink($config['VDO_DIR']."/".$video_name);
 }
 $log =  "zhuangma wancheng\n\n";
 log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);

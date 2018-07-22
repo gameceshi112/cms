@@ -6,6 +6,7 @@ $loaders  = array(
     'ajax' => 1,
     'album' => 1,
 	'ajaxupload' => 1,
+	'add_videos' => 1,
     'albums' => 1,
     'blog' => 1,
     'blogs' => 1,
