@@ -16,6 +16,7 @@ $thumb_img = '';
 if(isset($_SERVER['argv'][5])){
 	$thumb_img = $_SERVER['argv'][5];
 }
+
 // Required
 $basedir = dirname(dirname(__FILE__));
 require $basedir. '/include/config.php';
@@ -32,9 +33,6 @@ echo "Parameters:\n";
 echo "Video Name: $video_name\n";
 echo "Vidoe ID: $vid\n";
 echo "Video Path: $video_path\n\n";
-
-
-
 
 
 // Error Checks
@@ -69,12 +67,20 @@ foreach($encodings as $encoding) {
 	//转化成m3u8视频
 	if($config['multi_server'] == '1'){
 		$server = get_server();
+		
 		if(!empty($m3u8_path)){
 			$log =  "start send m3u8 to server\n\n";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
-			upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root'],$vid);
+			
+			$remote_md5_path = upload_m3u8_video($m3u8_path, $server['server_ip'], $server['ftp_username'], $server['ftp_password'], $server['ftp_root'],$vid);
 			$log =  "send m3u8 to server ok!\n\n";
 			log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
+			//
+			$format = "m3u8";
+			
+			$sql = "UPDATE video SET m3u8 = IF(m3u8 IS NULL, '".$encoding['height'].".".$remote_md5_path.".".$format."', CONCAT(m3u8, ',".$encoding['height'].".".$remote_md5_path.".".$format."')) WHERE VID = '".(int)$vid."'";
+			
+			executeQuery($sql);	
 		}
 		
 		$sql = "UPDATE video SET server = '".$server['video_url']."' WHERE VID = '".(int)$vid."'";
@@ -125,7 +131,7 @@ if($config['multi_server'] == '1'){
 postConversion($vid,$video_path);
 //删除原来的MP4文件
 if(file_exists($config['VDO_DIR']."/".$video_name)){
-	unlink($config['VDO_DIR']."/".$video_name);
+	//unlink($config['VDO_DIR']."/".$video_name);
 }
 $log =  "zhuangma wancheng\n\n";
 log_conversion($config['LOG_DIR']. '/' .$vid. '.log', $log);
