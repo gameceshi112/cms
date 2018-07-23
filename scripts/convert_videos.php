@@ -101,7 +101,7 @@ postThumbs($vid,$video_path);
 $pic_path =  $config['BASE_DIR'].DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'videos'.DIRECTORY_SEPARATOR.'tmb'.DIRECTORY_SEPARATOR.$vid.DIRECTORY_SEPARATOR;
 	
 //如果有图片需要下载的话
-if($thumb_img){
+if($thumb_img && 0){
 	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "检测到缩略图需要下载");
 	log_conversion($config['LOG_DIR']. '/' .$vid. '.log', "开始下载缩略图".$thumb_img);
 	$cmd = "wget -c '".$thumb_img."' -o ".$pic_path.'100.jpg';

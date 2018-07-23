@@ -133,7 +133,7 @@ if ( $conn->Affected_Rows() != 1 ) {
 		    	." ".$video_id
 		    	." ".$new_vdo_path
 				." ".'true'
-				.$thumb_img
+				." ".$thumb_img
 		    ."";
 			$log = $config['LOG_DIR']. '/' .$video_id. '.log';
 			log_conversion($log,"文件下载完成，开始转码，启动脚本:".$cmd);
