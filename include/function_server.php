@@ -56,22 +56,12 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root,$vid
 			    log_conversion2($config['LOG_DIR']. '/' .$vid. '.log', $log);
 				die('Failed to change directory to: m3u8');
 		}
-		$year = date('Y');
-		$moth = date('m');
-		$day = date('d');
-		//cchuangjian nian
-		if ( !ftp_chdir($conn_id, $year) ) {
-			ftp_mkdir($conn_id,$year);
-			ftp_chdir($conn_id, $year);
+		$date = date('Ymd');
+		if ( !ftp_chdir($conn_id, $date) ) {
+			ftp_mkdir($conn_id,$date);
+			ftp_chdir($conn_id, $date);
 		}
-		if ( !ftp_chdir($conn_id, $moth) ) {
-			ftp_mkdir($conn_id,$moth);
-			ftp_chdir($conn_id, $moth);
-		}
-		if ( !ftp_chdir($conn_id, $day) ) {
-			ftp_mkdir($conn_id,$day);
-			ftp_chdir($conn_id, $day);
-		}
+		
 		
 		$paths = explode(DIRECTORY_SEPARATOR,$m3u8_path);
 		$index = count($paths)-2;
@@ -104,7 +94,7 @@ function upload_m3u8_video($m3u8_path, $ip, $username, $password, $ftp_root,$vid
 	   return '';
 	}
 	ftp_close($conn_id);
-	return $year.'/'.$moth.'/'.$day.'/'.$dirname;
+	return $date.'/'.$dirname;
 	
 }
 
