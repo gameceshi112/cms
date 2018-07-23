@@ -108,10 +108,9 @@ if ( $conn->Affected_Rows() != 1 ) {
 						   description = '".mysql_real_escape_string($description)."', 
                            space = '" .$space. "', addtime = '" .time(). "', adddate = '" .date('Y-m-d'). "', vkey = '" .mt_rand(). "', 
                            type = '" .$video['privacy']. "', active = '2'";
-			echo $sql;die();
 			$conn->execute($sql);
 			$video_id   = mysql_insert_id();
-		
+			
 			$vkey       = substr(md5($video_id),11,20);
 			$sql        = "UPDATE video SET vkey = '" .$vkey. "' WHERE VID = " .intval($video_id). " LIMIT 1";
 			$conn->execute($sql);	
