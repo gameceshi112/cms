@@ -227,11 +227,6 @@ function convert_m3u8($video_path,$e,$vid){
 	//插入广告
 	write_m3u8($m3u8_path,$config['ADS_URL'],$config['ADVS_LENGTH']);
 	
-	$format = "m3u8";
-	$sql = "UPDATE video SET m3u8 = IF(m3u8 IS NULL, '".$e['height'].".".$md5_path.".".$format."', CONCAT(m3u8, ',".$e['height'].".".$md5_path.".".$format."')) WHERE VID = '".(int)$vid."'";
-	executeQuery($sql);
-	
-	
 	//删除ts.mp4
 	unlink($ts_output_path);
 	return $m3u8_storge_path;
